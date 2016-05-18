@@ -1,0 +1,520 @@
+body{
+    width: 70%;	
+	padding: 0;
+	margin: 0;
+	margin-left: 15%;
+	background-image:url(../images/background.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+@font-face{
+    font-family: 'KomikaAxis';
+	src: url(../fonts/9777.ttf);		
+}
+@font-face{
+    font-family: 'Mart AWX';
+	src: url(../fonts/9762.ttf);
+}
+@font-face{
+    font-family: 'Anima Ace';
+	src: url(../fonts/9421.ttf);
+}
+@font-face{
+    font-family: 'P22 Underground CY Pro';
+	src: url(../fonts/9761.otf);
+}
+@font-face{
+    font-family: 'Rotonda Bold';
+	src: url(../fonts/9756.ttf);
+}
+a{	
+   text-decoration: none;
+}
+.header{
+	width: 100%;
+    display: inline-block;
+	background-color: rgba(128, 128, 128, 0.8);
+	border: 1px solid black;
+	border-radius: 0 0 15% 15%;
+	border: 2px solid #000;
+}
+.headmain{
+	padding-left: 2%;
+	float:left;
+    width: 50%;
+}
+.main{
+   float: left;	
+   font-family: 'KomikaAxis';
+   font-size: 25px;
+}
+.main a{
+   	color: #fff;
+}
+ul{
+   list-style: none;	
+   padding: 0;
+   margin: 0;
+}
+.menu{
+   float: right;	
+   height: 50%;
+   margin-right: 10%;
+}
+.menu li{	
+   float: left;
+   color: white;
+   display: inline-block;
+}
+.menu a{
+   color: white;
+   display: inline-block;
+   height: 50%;
+   line-height: 50px;
+   padding: 0 15px;
+   font-family: 'Mart AWX';
+}
+.menu a:hover{
+   background-color: white;
+   color: black;
+}
+.headbut{
+   margin-right: 3%;
+}
+.login{
+	width: 15%;
+   margin-left: 2%;
+   position: relative;
+   top: 5px;	
+   background-color: #2F4F4F;
+   color: white;
+   border: none;
+   padding: 7px 15px;
+   border: 3px solid white;
+   border-radius: 10px;
+   cursor: pointer;
+   font-size: 16px;
+}
+.login:hover{
+   background-color: #DCDCDC;
+   color: #000;
+}
+.reg{
+   margin-left: 5px;
+   position: relative;
+   top: 5px;
+   display: inline-block;	
+   background-color: #2F4F4F;
+   color: white;
+   border: none;
+   padding: 10px 15px;
+   border: 3px solid white;
+   border-radius: 10px;
+}
+.reg:hover{
+   background-color: #DCDCDC;
+   color: #000;
+}
+.search{
+   border:1px solid #2a2e31;
+   background-color:#2d3035;
+   color: white;
+   padding:6px 15px 6px 30px;
+   margin:3px; 
+   background: url(../images/search.png) no-repeat;
+   position:relative;
+   top: 5px;
+   margin-left: 5%;
+}
+.content{
+   margin-top: 3%;
+   width: 100%;
+}
+.fblock{
+    width: 100%;
+	min-height: 540px;
+	background-color: rgba(0, 0, 0, 0.9);	
+	border: 1px solid #fff;
+	display:inline-block;
+}
+.fblock a{
+    color: #fff;	
+}
+.bhead{
+    width: 90%;
+	height:auto;
+	font-size: 36px;
+	background-color: rgb(128, 128, 128);
+	text-align: center;	
+	margin-left: 5%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	position: relative;
+	top: -10px;
+	border: 1px solid #fff;
+	color: #fff;
+	font-family: 'Anima Ace';
+}
+.f1{
+	float: left;
+	margin-left: 7%;
+    width: 25%;
+	min-height: 460px;
+	text-align: center;
+	background-color: rgba(128, 128, 128, 0.5);
+	color: #fff;
+	font-family: 'P22 Underground CY Pro';
+}
+.f2{
+	float: left;
+	margin-left: 5%;
+    width: 25%;
+	min-height: 460px;
+	text-align: center;
+	background-color: rgba(128, 128, 128, 0.5);
+	color: #fff;
+	font-family: 'P22 Underground CY Pro';
+}
+.f3{
+	float: left;
+	margin-left: 5%;
+    width: 25%;
+	min-height: 460px;
+	text-align: center;
+	background-color: rgba(128, 128, 128, 0.5);
+	color: #fff;
+	font-family: 'P22 Underground CY Pro';
+}
+.post1{
+	display:block;
+	background-image:url(../images/770631.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 90%;
+	height: 310px;
+	position: relative;
+	top: 15px;
+	left: 12px;
+}
+.post2{
+	display:block;
+	background-image:url(../images/462360.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 90%;
+	height: 310px;
+	position: relative;
+	top: 15px;
+	left: 12px;
+}
+.post3{
+	display:block;
+	background-image:url(../images/iphone360_822708.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 90%;
+	height: 310px;
+	position: relative;
+	top: 15px;
+	left: 12px;
+}
+.btext{
+	display: block;
+	position:relative;
+	top: 30px;	
+	min-height: 50px;
+	font-weight: bold;
+	font-size: 19px;
+}
+.date{
+	display: inline;
+    width: 20%;
+	min-height: 30px;
+	font-size: 25px;
+	border-top: 15px solid rgba(0, 0, 0, 0.9);
+	position: relative;
+	top: 69px;
+	padding: 5px 71px 5px 72px;
+	background-color: rgba(128, 128, 128, 0.5);
+	font-weight: bold;
+	color: #fff;
+	font-family: 'Rotonda Bold';
+}
+.cont2{
+	margin-top: 1%;
+	min-height: 630px;
+    width: 100%;
+}
+.mnews{
+	width: 49%;
+    float: left;	
+	border: 1px solid #000;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+.mnews :last-child{
+    border: none;
+}
+.mtrail{
+	float: right;
+	width: 49%;
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 1px solid #000;
+	min-height: 630px;
+}
+.mtrail :last-child{
+    border: none;
+}
+.footer{
+	clear: both;
+	margin-top: 1%;
+    width: 100%;
+	min-height: 50px;
+	background-color: rgba(128, 128, 128, 0.9);
+	border: 1px solid #000;	
+	color: #fff;
+	border: 1px solid #000;
+}
+.nhead{
+    width: 96%;
+	font-size: 30px;
+	background-color: rgba(0, 0, 0, 0.9);
+	color: #fff;
+	font-family: 'Anima Ace';
+	padding: 2%;
+}
+.nblock{
+	display: inline-block;
+    width: 90%;	
+	margin-top: 2%;
+	margin-left: 2.5%;
+	padding: 2%;
+	border-bottom: 1px solid #000;
+}
+.nblock a{
+ 	color: #000;
+}
+.nimg{
+    float: left;
+	width: 25%;
+	background-image: url(../images/sm_2759400_1461318548.jpg);
+	background-size: cover;
+	min-height: 83px;
+	margin-right: 2%;
+}
+.ntext{
+	position: relative;
+	top: -30px;
+}
+.mblock{
+	border-bottom: 1px solid #000;
+    width: 90%;	
+	margin-top: 2%;
+	margin-left: 5%;
+}
+.mblock a{
+    color: #000;	
+}
+.mtitle{
+    text-align: center;
+	padding: 0;
+}
+.mvid iframe{
+	width: 90%;
+	height: 185px;
+	margin-left: 5%;
+	margin-bottom: 4%;	
+}
+.pluso{
+	float: right;
+    position: relative;
+    right: 30px;
+}
+.foottext{
+    float: left;	
+	line-height: 50px;
+	padding-left: 4%;
+	font-size: 20px;
+	font-weight: bold;
+}
+.acont{
+    width: 100%;
+	background-color: rgba(255, 255, 255, 0.9);
+	min-height: 1000px;	
+	margin-top: 2%;
+    border: 1px solid #000;
+}
+.phead{
+    font-size: 35px;
+	background-color: rgba(0, 0, 0, 0.9);
+	color: #fff;
+	padding: 2%;	
+	font-family: 'Anima Ace';
+	border: 1px solid #fff;
+}
+.nlist{
+    width: 95%;
+	margin-left: 2.5%;
+	border-bottom: 1px solid #000;	
+}
+.nimg1{
+    float: left;
+	width: 15%;
+	background-image:url(../images/sm_2759402_1461323746.jpg);
+	background-size: cover;
+	min-height: 100px;
+	margin-right: 2%;
+}
+.pfilm{
+    width: 95%;
+	margin-top: 2%;
+	margin-left: 2.5%;
+	min-height: 210px;
+	border-bottom: 1px solid #000;		
+}
+.pfilm a{
+ 	color: #000;
+}
+.ppost{
+	float:left;
+    width: 17%;
+	margin-right: 2%;
+	height: 200px;
+	background-image: url(../images/779024.jpg);
+	background-size: cover;	
+}
+.ptext{
+	float:left;
+    width: 30%;	
+	margin-right: 2%;
+}
+.prate{
+	width: 30%;
+    float:left;
+	margin-right: 2%;	
+}
+.pdate{	
+	width: 17%;
+	float:left;
+}
+.tlist{
+    width: 95%;
+	margin-top: 2%;
+	margin-left: 2.5%;
+}
+.trail{
+    width: 32%;	
+}
+.tname{
+    font-size: 20px;
+	font-family: 'P22 Underground CY Pro';
+	margin-bottom: 5%;
+	text-align:center;
+		
+}
+.tvid iframe{
+	height: 200px;
+	margin-right: 1%;
+	margin-bottom: 2%;		
+}
+.ftitle{
+    font-size: 30px;
+	padding: 2%;
+	margin-left: 4%;	
+	font-family: 'P22 Underground CY Pro';
+}
+.film{
+	width: 95%;
+	margin-left: 2.5%;
+	min-height: 500px;
+}
+.fpost{
+	float: left;
+    width: 25%;
+	margin-left: 2%;
+	min-height: 330px;
+	background-image:url(../images/779024.jpg);
+	background-size: contain;	
+}
+.finfo{
+	width: 50%;
+    float: left;	
+	margin-left: 3%;
+}
+table{
+	border-collapse: collapse;
+}
+td{
+    border-bottom: 1px solid #000;
+	padding: 10px 40px 10px 40px;
+}
+.froles{
+    width: 17%;
+	float: left;
+	margin-left: 2%;	
+}
+.textline{
+   width: 98%;
+   background-color: #000;
+   opacity: 0.9;
+   font-size: 30px;
+   color: #fff;	
+   padding: 1%;
+   font-family: 'Anima Ace';
+}
+.ftext{
+   width: 90%;
+   margin-left: 5%;
+   font-size: 20px;
+   text-indent: 30px;	
+}
+.ftrail iframe{
+   width: 80%;
+   margin-left: 10%;
+   margin-top: 2%;
+   margin-bottom: 2%;
+   min-height: 400px;	
+}
+.ntitle{
+   padding: 2%;
+   font-size: 30px;	
+}
+.ntext{
+   padding: 2%;
+   font-size: 16px;	
+}
+.loginf{
+   width: 49%;
+   float: left;	
+   text-align: center;
+   margin-top: 5%;
+}
+.regf{
+   float: right;	
+   width: 49%;
+   text-align: center;
+   margin-top: 5%;
+   border-left: 1px solid #000;
+   min-height: 430px;
+}
+.acontlog{
+    width: 100%;
+	background-color: rgba(255, 255, 255, 0.9);
+	min-height: 530px;	
+	margin-top: 2%;
+    border: 1px solid #000;
+	font-family: 'P22 Underground CY Pro';
+}
+.logregbut{
+    padding: 10px 15px;
+	background-color: #000;
+	color: #fff;
+	border: 3px solid #000;
+	border-radius: 10px;	
+}
+.logregbut:hover{
+    background-color: #fff;
+	color: #000;	
+}
+
