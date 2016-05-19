@@ -47,4 +47,13 @@ public class Role extends Model {
     public String toString() {
         return name;
     }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+    
 }

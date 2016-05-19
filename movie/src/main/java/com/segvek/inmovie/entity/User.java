@@ -5,28 +5,43 @@
  */
 package com.segvek.inmovie.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class User extends Model{
-    
+public class User extends Model {
+
     @Column(name = "login")
     private String login;
-    
+
     @Column(name = "pass")
     private String pass;
-    
+
     @Column(name = "mail")
     private String mail;
-    
+
     @ManyToOne
     @JoinColumn(name = "id_role")
     private Role rol;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Comment> comments = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(name = "watch_list", joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "film_id")})
+    private Set<Film> films = new HashSet<>();
 
     public User() {
     }
@@ -49,7 +64,7 @@ public class User extends Model{
         this.mail = mail;
         this.rol = rol;
     }
-    
+
     public String getLogin() {
         return login;
     }
@@ -81,4 +96,21 @@ public class User extends Model{
     public void setRol(Role rol) {
         this.rol = rol;
     }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public Set<Film> getFilms() {
+        return films;
+    }
+
+    public void setFilms(Set<Film> films) {
+        this.films = films;
+    }
+    
 }
