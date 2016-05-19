@@ -11,22 +11,7 @@
         <%@include file="blocks/head.jspf" %>
     </head>
     <body>
-        <div class="header">
-            <div class="headmain">
-                <span class="main"><a href="index.php">INMovie</a></span>
-                <div class="menu">
-                    <ul>
-                        <li><a href="affiche.php">Афиша</a></li>
-                        <li><a href="trailers.php">Трейлеры</a></li>
-                        <li><a href="news.php">Новости</a></li> 
-                    </ul>
-                </div>
-            </div>
-            <div class="headbut">
-                <input type="text" class="search" placeholder="Искать...">
-                <a href="logreg.php"><input type="button" class="login" value="Вход"></a>
-            </div>
-        </div>
+        <%@include file="blocks/header.jspf" %>
         <div class="content">
             <div class="fblock">
                 <div class="bhead">Сегодня в кино</div>
@@ -66,6 +51,7 @@
                         <p>КиноПоиск и «Амедиатека» представляют конкурс, посвященный старту нового сезона одного из главных телевизионных проектов современности «Игра престолов». Правильно ответьте на вопросы и получите возможность выиграть билеты на премьерный показ первой серии в кинотеатрах сети «КАРО».</p>
                     </div>
                 </div>
+                
             </div>
             <div class="mtrail">
                 <div class="nhead">Новые трейлеры</div>

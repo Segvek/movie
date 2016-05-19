@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
      <head>
            <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -23,7 +23,5 @@
      </ul></li>
 </ul>
 </div>
-<div class="footer"></div>
-
 </body>
 </html>

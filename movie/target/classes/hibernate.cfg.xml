@@ -8,9 +8,13 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">Segvek24092982</property>
         <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         
         <mapping class="com.segvek.inmovie.entity.Role"/>
         <mapping class="com.segvek.inmovie.entity.User"/>
+        <mapping class="com.segvek.inmovie.entity.Janr"/>
+        <mapping class="com.segvek.inmovie.entity.Film"/>
+        <mapping class="com.segvek.inmovie.entity.News"/>
+        <mapping class="com.segvek.inmovie.entity.Comment"/>
     </session-factory>
 </hibernate-configuration>
