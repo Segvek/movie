@@ -14,5 +14,27 @@
     </head>
     <body>
         <%@include file="blocks/menu.jspf" %>
+        <div class="flist">
+            <table>
+                <tr>
+                    <td>id</td>
+                    <td>name</td>
+                    <td class="del"><a href="">edit</a></td>
+                    <td class="del"><a href="">del</a></td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>name</td>
+                    <td class="del"><a href="">edit</a></td>
+                    <td class="del"><a href="">del</a></td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>name</td>
+                    <td class="del"><a href="">edit</a></td>
+                    <td class="del"><a href="">del</a></td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
