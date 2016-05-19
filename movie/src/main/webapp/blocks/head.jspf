@@ -1,0 +1,5 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="windows-1251" %>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link type="text/css" href="css/style.css" rel="stylesheet">
+<title>INMovie</title>

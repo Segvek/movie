@@ -4,18 +4,12 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class indexp_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List _jspx_dependants;
-
-  static {
-    _jspx_dependants = new java.util.ArrayList(2);
-    _jspx_dependants.add("/blocks/head.jspf");
-    _jspx_dependants.add("/blocks/footer.jspf");
-  }
 
   private javax.el.ExpressionFactory _el_expressionfactory;
   private org.apache.AnnotationProcessor _jsp_annotationprocessor;
@@ -62,13 +56,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("        ");
-      out.write("\n");
-      out.write("\n");
-      out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1251\">\n");
-      out.write("<link type=\"text/css\" href=\"css/style.css\" rel=\"stylesheet\">\n");
-      out.write("<title>INMovie</title>\n");
-      out.write("\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1251\">\n");
+      out.write("        <link type=\"text/css\" href=\"css/style.css\" rel=\"stylesheet\">\n");
+      out.write("        <title>INMovie</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <div class=\"header\">\n");
@@ -91,10 +81,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"fblock\">\n");
       out.write("                <div class=\"bhead\">Сегодня в кино</div>\n");
       out.write("                <div class=\"f1\">     \n");
-      out.write("                    <a href=\"page?operation=film&id=1\">\n");
-      out.write("                        <div class=\"post1\"></div>\n");
-      out.write("                        <span class=\"btext\">Бэтмен против</br> Супермена</span>\n");
-      out.write("                    </a>\n");
+      out.write("                    <a href=\"view_film.php\"><div class=\"post1\"></div>\n");
+      out.write("                    <span class=\"btext\">Бэтмен против</br> Супермена</span></a>\n");
       out.write("                    <div class=\"date\">24.03.16</div>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"f2\">\n");
@@ -139,29 +127,26 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
-      out.write("        ");
+      out.write("        <div class=\"footer\">\n");
+      out.write("            <div class=\"foottext\">@2016 INMovie.com</div>\n");
+      out.write("            <script type=\"text/javascript\">(function () {\n");
+      out.write("                    if (window.pluso)\n");
+      out.write("                        if (typeof window.pluso.start == \"function\")\n");
+      out.write("                            return;\n");
+      out.write("                    if (window.ifpluso == undefined) {\n");
+      out.write("                        window.ifpluso = 1;\n");
+      out.write("                        var d = document, s = d.createElement('script'), g = 'getElementsByTagName';\n");
+      out.write("                        s.type = 'text/javascript';\n");
+      out.write("                        s.charset = 'UTF-8';\n");
+      out.write("                        s.async = true;\n");
+      out.write("                        s.src = ('https:' == window.location.protocol ? 'https' : 'http') + '://share.pluso.ru/pluso-like.js';\n");
+      out.write("                        var h = d[g]('body')[0];\n");
+      out.write("                        h.appendChild(s);\n");
+      out.write("                    }\n");
+      out.write("                })();</script>\n");
+      out.write("            <div class=\"pluso\" data-background=\"transparent\" data-options=\"big,square,line,horizontal,nocounter,theme=02\" data-services=\"vkontakte,facebook,twitter,google\"></div>\n");
+      out.write("        </div>    \n");
       out.write("\n");
-      out.write("\n");
-      out.write("<div class=\"footer\">\n");
-      out.write("    <div class=\"foottext\">@2016 INMovie.com</div>\n");
-      out.write("    <script type=\"text/javascript\">(function () {\n");
-      out.write("            if (window.pluso)\n");
-      out.write("                if (typeof window.pluso.start == \"function\")\n");
-      out.write("                    return;\n");
-      out.write("            if (window.ifpluso == undefined) {\n");
-      out.write("                window.ifpluso = 1;\n");
-      out.write("                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';\n");
-      out.write("                s.type = 'text/javascript';\n");
-      out.write("                s.charset = 'UTF-8';\n");
-      out.write("                s.async = true;\n");
-      out.write("                s.src = ('https:' == window.location.protocol ? 'https' : 'http') + '://share.pluso.ru/pluso-like.js';\n");
-      out.write("                var h = d[g]('body')[0];\n");
-      out.write("                h.appendChild(s);\n");
-      out.write("            }\n");
-      out.write("        })();</script>\n");
-      out.write("    <div class=\"pluso\" data-background=\"transparent\" data-options=\"big,square,line,horizontal,nocounter,theme=02\" data-services=\"vkontakte,facebook,twitter,google\"></div>\n");
-      out.write("</div>\n");
-      out.write("  \n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

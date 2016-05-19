@@ -11,63 +11,63 @@
           <span class="main"><a href="index.php">INMovie</a></span>
     <div class="menu">
     <ul>
-       <li><a href="affiche.php">РђС„РёС€Р°</a></li>
-       <li><a href="trailers.php">РўСЂРµР№Р»РµСЂС‹</a></li>
-       <li><a href="news.php">РќРѕРІРѕСЃС‚Рё</a></li> 
+       <li><a href="affiche.php">Афиша</a></li>
+       <li><a href="trailers.php">Трейлеры</a></li>
+       <li><a href="news.php">Новости</a></li> 
     </ul>
 </div>
 </div>
 <div class="headbut">
-<input type="text" class="search" placeholder="РСЃРєР°С‚СЊ...">
-<a href="logreg.php"><input type="button" class="login" value="Р’С…РѕРґ"></a>
+<input type="text" class="search" placeholder="Искать...">
+<a href="logreg.php"><input type="button" class="login" value="Вход"></a>
 </div>
 </div>
 <div class="content">
 <div class="fblock">
-   <div class="bhead">РЎРµРіРѕРґРЅСЏ РІ РєРёРЅРѕ</div>
+   <div class="bhead">Сегодня в кино</div>
        <div class="f1">     
            <a href="view_film.php"><div class="post1"></div></a>
-          <a href="view_film.php"><span class="btext">Р‘СЌС‚РјРµРЅ РїСЂРѕС‚РёРІ</br> РЎСѓРїРµСЂРјРµРЅР°</span></a>
+          <a href="view_film.php"><span class="btext">Бэтмен против</br> Супермена</span></a>
             <div class="date">24.03.16</div>
          </div>
        <div class="f2">
            <a href="view_film.php"><div class="post2"></div></a>
-            <a href="view_film.php"><span class="btext">Р”РµРґРїСѓР»</span></a>
+            <a href="view_film.php"><span class="btext">Дедпул</span></a>
             <div class="date">24.03.16</div>
          </div>
        <div class="f3">
            <a href="view_film.php"> <div class="post3"></div></a>
-           <a href="view_film.php">  <span class="btext">РџРµСЂРІС‹Р№ РјСЃС‚РёС‚РµР»СЊ: РџСЂРѕС‚РёРІРѕСЃС‚РѕСЏРЅРёРµ</span></a>
+           <a href="view_film.php">  <span class="btext">Первый мститель: Противостояние</span></a>
             <div class="date">24.03.16</div>
          </div>   
        </div>
      </div>
     <div class="cont2">
              <div class="mnews">
-                 <div class="nhead">РќРѕРІРѕСЃС‚Рё</div>
+                 <div class="nhead">Новости</div>
                     <div class="nblock">
                         <a href="view_news.php"><div class="nimg"></div></a>
                         <div class="ntext">
-                           <a href="view_news.php"><h2>Р‘РёР»РµС‚С‹ РЅР° РїСЂРµРјСЊРµСЂСѓ С€РµСЃС‚РѕРіРѕ СЃРµР·РѕРЅР° В«РРіСЂС‹ РїСЂРµСЃС‚РѕР»РѕРІВ»</h2></a>
-                            <p>РљРёРЅРѕРџРѕРёСЃРє Рё В«РђРјРµРґРёР°С‚РµРєР°В» РїСЂРµРґСЃС‚Р°РІР»СЏСЋС‚ РєРѕРЅРєСѓСЂСЃ, РїРѕСЃРІСЏС‰РµРЅРЅС‹Р№ СЃС‚Р°СЂС‚Сѓ РЅРѕРІРѕРіРѕ СЃРµР·РѕРЅР° РѕРґРЅРѕРіРѕ РёР· РіР»Р°РІРЅС‹С… С‚РµР»РµРІРёР·РёРѕРЅРЅС‹С… РїСЂРѕРµРєС‚РѕРІ СЃРѕРІСЂРµРјРµРЅРЅРѕСЃС‚Рё В«РРіСЂР° РїСЂРµСЃС‚РѕР»РѕРІВ». РџСЂР°РІРёР»СЊРЅРѕ РѕС‚РІРµС‚СЊС‚Рµ РЅР° РІРѕРїСЂРѕСЃС‹ Рё РїРѕР»СѓС‡РёС‚Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС‹РёРіСЂР°С‚СЊ Р±РёР»РµС‚С‹ РЅР° РїСЂРµРјСЊРµСЂРЅС‹Р№ РїРѕРєР°Р· РїРµСЂРІРѕР№ СЃРµСЂРёРё РІ РєРёРЅРѕС‚РµР°С‚СЂР°С… СЃРµС‚Рё В«РљРђР РћВ».</p>
+                           <a href="view_news.php"><h2>Билеты на премьеру шестого сезона «Игры престолов»</h2></a>
+                            <p>КиноПоиск и «Амедиатека» представляют конкурс, посвященный старту нового сезона одного из главных телевизионных проектов современности «Игра престолов». Правильно ответьте на вопросы и получите возможность выиграть билеты на премьерный показ первой серии в кинотеатрах сети «КАРО».</p>
                         </div>
                    </div>
                     <div class="nblock">
                        <a href="view_news.php"><div class="nimg"></div></a>
                         <div class="ntext">
-                         <a href="view_news.php"><h2>Р‘РёР»РµС‚С‹ РЅР° РїСЂРµРјСЊРµСЂСѓ С€РµСЃС‚РѕРіРѕ СЃРµР·РѕРЅР° В«РРіСЂС‹ РїСЂРµСЃС‚РѕР»РѕРІВ»</h2></a>
-                            <p>РљРёРЅРѕРџРѕРёСЃРє Рё В«РђРјРµРґРёР°С‚РµРєР°В» РїСЂРµРґСЃС‚Р°РІР»СЏСЋС‚ РєРѕРЅРєСѓСЂСЃ, РїРѕСЃРІСЏС‰РµРЅРЅС‹Р№ СЃС‚Р°СЂС‚Сѓ РЅРѕРІРѕРіРѕ СЃРµР·РѕРЅР° РѕРґРЅРѕРіРѕ РёР· РіР»Р°РІРЅС‹С… С‚РµР»РµРІРёР·РёРѕРЅРЅС‹С… РїСЂРѕРµРєС‚РѕРІ СЃРѕРІСЂРµРјРµРЅРЅРѕСЃС‚Рё В«РРіСЂР° РїСЂРµСЃС‚РѕР»РѕРІВ». РџСЂР°РІРёР»СЊРЅРѕ РѕС‚РІРµС‚СЊС‚Рµ РЅР° РІРѕРїСЂРѕСЃС‹ Рё РїРѕР»СѓС‡РёС‚Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС‹РёРіСЂР°С‚СЊ Р±РёР»РµС‚С‹ РЅР° РїСЂРµРјСЊРµСЂРЅС‹Р№ РїРѕРєР°Р· РїРµСЂРІРѕР№ СЃРµСЂРёРё РІ РєРёРЅРѕС‚РµР°С‚СЂР°С… СЃРµС‚Рё В«РљРђР РћВ».</p>
+                         <a href="view_news.php"><h2>Билеты на премьеру шестого сезона «Игры престолов»</h2></a>
+                            <p>КиноПоиск и «Амедиатека» представляют конкурс, посвященный старту нового сезона одного из главных телевизионных проектов современности «Игра престолов». Правильно ответьте на вопросы и получите возможность выиграть билеты на премьерный показ первой серии в кинотеатрах сети «КАРО».</p>
                         </div>
                    </div>
            </div>
         <div class="mtrail">
-                 <div class="nhead">РќРѕРІС‹Рµ С‚СЂРµР№Р»РµСЂС‹</div>
+                 <div class="nhead">Новые трейлеры</div>
                  <div class="mblock">
-                     <a href="view_film.php"><div class="mtitle"><h2>РћС‚СЂСЏРґ СЃР°РјРѕСѓР±РёР№С†</h2></div></a>
+                     <a href="view_film.php"><div class="mtitle"><h2>Отряд самоубийц</h2></div></a>
                       <div class="mvid"><iframe src="https://www.youtube.com/embed/7xLCggrIRHY" frameborder="0" allowfullscreen></iframe></div>
            </div>
                  <div class="mblock">
-                     <a href="view_film.php"><div class="mtitle"><h2>РћС‚СЂСЏРґ СЃР°РјРѕСѓР±РёР№С†</h2></div></a>
+                     <a href="view_film.php"><div class="mtitle"><h2>Отряд самоубийц</h2></div></a>
                       <div class="mvid"><iframe src="https://www.youtube.com/embed/7xLCggrIRHY" frameborder="0" allowfullscreen></iframe></div>
            </div>
     </div>
