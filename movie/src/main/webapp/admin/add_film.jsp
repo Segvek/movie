@@ -17,28 +17,28 @@
         <%@include file="blocks/menu.jspf" %>
         <form>
             <p><label for="name">¬ведите название фильма:</label></p>
-            <p><input value = "" type="text" name="name" id="name" class="input" size="50" maxlength="50"></p>
+            <p><input type="text" name="name" class="input" size="50" maxlength="50"></p>
 
             <p><label for="year">¬ведите год:</label></p>
-            <p><input value = "" type="text" name="year" id="year" class="input" size="10" maxlength="4"></p>
+            <p><input type="text" name="year" class="input" size="10" maxlength="4"></p>
 
-            <p><label for="country">¬ведите страну:</label></p>
-            <p><input value = "" type="text" name="country" id="country" class="input" size="50" maxlength="20"></p>
+            <p><label for="county">¬ведите страну:</label></p>
+            <p><input type="text" name="county" class="input" size="50" maxlength="20"></p>
 
-            <p><label for="director">¬ведите режисеров:</label></p>
-            <p><input value = "" type="text" name="director" id="director" class="input" size="50" maxlength="255"></p>
+            <p><label for="regeser">¬ведите режисеров:</label></p>
+            <p><input type="text" name="regeser" class="input" size="50" maxlength="255"></p>
 
-            <p><label for="scenario">¬ведите сценаристов:</label></p>
-            <p><input value = "" type="text" name="scenario" id="scenario" class="input" size="50" maxlength="255"></p>
+            <p><label for="schenarist">¬ведите сценаристов:</label></p>
+            <p><input type="text" name="schenarist" class="input" size="50" maxlength="255"></p>
 
             <p><label for="producer">¬ведите продюсеров:</label></p>
-            <p><input value = "" type="text" name="producer" id="producer" class="input" size="50" maxlength="255"></p>
+            <p><input type="text" name="producer" class="input" size="50" maxlength="255"></p>
 
-            <p><label for="composer">¬ведите композиторов:</label></p>
-            <p><input value = "" type="text" name="composer" id="composer" class="input" size="50" maxlength="255"></p>
+            <p><label for="kompositor">¬ведите композиторов:</label></p>
+            <p><input type="text" name="kompositor" class="input" size="50" maxlength="255"></p>
 
-            <p><label for="genre">¬ведите жанр:</label></p>
-            <p><select multiple="multiple" name="genre"> 
+            <p><label for="janr">¬ведите жанр:</label></p>
+            <p><select multiple="multiple" name="janr"> 
                     <option>комеди€</option>
                     <option>ужасы</option>
                     <option>драма</option>
@@ -46,29 +46,30 @@
                     <option>приключени€</option>
                     <option>триллер</option>
                 </select></p>
-               
-            
-            <p><label for="dues">¬ведите сборы:</label></p>
-            <p><input value = "" type="text" name="dues" id="dues" class="input" size="30" maxlength="50"></p>
 
-            <p><label for="premiere">¬ведите дату премьеры:</label></p>
-            <p><input value = "" type="text" name="premiere" id="premiere" class="input" size="10" maxlength="10"></p>
+            <p><label for="sbory">¬ведите сборы:</label></p>
+            <p><input type="text" name="sbory" class="input" size="30" maxlength="50"></p>
 
-            <p><label for="duration">¬ведите длительность фильма:</label></p>
-            <p><input value = "" type="text" name="duration" id="duration" class="input" size="10" maxlength="10"></p>
+            <p><label for="premera">¬ведите дату премьеры:</label></p>
+            <p><input type="text" name="premera" class="input" size="10" maxlength="10"></p>
 
-            <p><label for="description">¬ведите описание фильма:</label></p>
-            <p><textarea name="description" cols="80" rows="15" id="description"></textarea></p>
+            <p><label for="time">¬ведите длительность фильма:</label></p>
+            <p><input type="text" name="time" class="input" size="10" maxlength="10"></p>
 
-            <p><label for="link">¬ведите ссылку на трейлер:</label></p>
-            <p><input value = "" type="text" name="link" id="link" class="input" size="40"></p>
+            <p><label for="atRore">¬ведите список актеров:</label></p>
+            <p><textarea name="atRore" cols="40" rows="5"></textarea></p>
 
-            <p><label for="image">¬ыберите файл постера:</label></p>
-            <p><input value = "" type="file" name="image" id="image" class="input"></p>
+            <p><label for="anotation">¬ведите описание фильма:</label></p>
+            <p><textarea name="anotation" cols="80" rows="15" id="description"></textarea></p>
+
+            <p><label for="linkVideo">¬ведите ссылку на трейлер:</label></p>
+            <p><input type="text" name="linkVideo" class="input" size="40"></p>
+
+            <p><label for="patchImage">¬ыберите файл постера:</label></p>
+            <p><input type="file" name="patchImage" class="input"></p>
 
 
             <p><button name="add_film" type="submit">ƒобавить</button></p>
-
 
         </form>
     </body>

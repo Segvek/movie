@@ -19,8 +19,24 @@
             <p><label for="suser">Поиск пользователя: </label><input value = "" type="text" name="suser" id="suser" class="input" size="20" maxlength="50">
 
                 <button name="search_user" type="submit">Поиск</button></p>
-            <div class="ulist">
-                
+            <div class="flist">
+                <table>
+                    <tr>
+                        <td>id</td>
+                        <td>login</td>
+                        <td class="del"><a href="">del</a></td>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>login</td>
+                        <td class="del"><a href="">del</a></td>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>login</td>
+                        <td class="del"><a href="">del</a></td>
+                    </tr>
+                </table>
             </div>
         </form>
     </body>

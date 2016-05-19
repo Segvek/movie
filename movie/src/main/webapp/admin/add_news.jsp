@@ -32,14 +32,14 @@
         </div>
         <form>
 
-            <p><label for="name">Введите название новости:</label></p>
-            <p><input value = "" type="text" name="name" id="name" class="input" size="50" maxlength="50"></p>
+            <p><label for="title">Введите название новости:</label></p>
+            <p><input type="text" name="title" class="input" size="50" maxlength="50"></p>
 
-            <p><label for="text">Введите текст новости:</label></p>
-            <p><textarea name="text" cols="80" rows="15" id="text"></textarea></p>
+            <p><label for="content">Введите текст новости:</label></p>
+            <p><textarea name="content" cols="80" rows="15" id="text"></textarea></p>
 
-            <p><label for="image">Выберите файл картинки:</label></p>
-            <p><input value = "" type="file" name="image" id="image" class="input"></p>
+            <p><label for="patchImage">Выберите файл картинки:</label></p>
+            <p><input type="file" name="patchImage" class="input"></p>
 
             <p><button name="add_film" type="submit">Добавить</button></p>
 
