@@ -5,7 +5,12 @@
  */
 package com.segvek.inmovie;
 
+import com.segvek.inmovie.dao.DaoImpl;
+import com.segvek.inmovie.entity.Role;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,28 +26,34 @@ public class EntryPointServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String operation = request.getParameter("operation");
-        if(operation==null)
+        if (operation == null) {
             operation = "unknow";
-        
+        }
+
         String address;
-        
-        switch(operation){
-            case "film":{
-                address="view_film.jsp";
+
+        switch (operation) {
+            case "film": {
+                address = "view_film.jsp";
                 break;
             }
-            case "news":{
-                address="view_film.jsp";
+            case "news": {
+                address = "view_film.jsp";
                 break;
             }
             /*
-            ...
-            */
+             ...
+             */
             default:
-                address="index.jsp";
+                address = "index.jsp";
         }
-        
-        
+
+        try {
+            new DaoImpl<>(Role.class).addEntity(new Role("Администратор"));
+        } catch (SQLException ex) {
+            Logger.getLogger(EntryPointServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
     }
