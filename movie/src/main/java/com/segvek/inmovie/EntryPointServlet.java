@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.segvek.inmovie;
 
-import com.segvek.inmovie.dao.DaoImpl;
-import com.segvek.inmovie.entity.Role;
+import com.segvek.inmovie.operation.Registration;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class EntryPointServlet extends HttpServlet {
 
+    private Registration registrator = new Registration();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String operation = request.getParameter("operation");
@@ -30,30 +23,36 @@ public class EntryPointServlet extends HttpServlet {
             operation = "unknow";
         }
 
-        String address;
+        String address = null;
 
         switch (operation) {
             case "film": {
                 address = "view_film.jsp";
                 break;
             }
-            case "news": {
-                address = "view_film.jsp";
+            case "registration": {
+                address = "logreg.jsp";
                 break;
             }
-            /*
-             ...
-             */
+            case "registrationUser": {
+                registrator.setRequest(request);
+                registrator.setResponse(response);
+                if (registrator.registration()) {
+                    address = "index.jsp";
+                } else {
+                    address = "logreg.jsp";
+                }
+                break;
+            }
             default:
                 address = "index.jsp";
         }
 
-        try {
-            new DaoImpl<>(Role.class).addEntity(new Role("Администратор"));
-        } catch (SQLException ex) {
-            Logger.getLogger(EntryPointServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+//        try {
+//            new DaoImpl<>(Role.class).addEntity(new Role("Администратор"));
+//        } catch (SQLException ex) {
+//            Logger.getLogger(EntryPointServlet.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
     }

@@ -27,8 +27,7 @@
                 </form>
             </div>
             <div class="regf">
-                <form>
-
+                <form method="POST" action="page?operation=registrationUser">
                     <p><label for="login">Введите логин:</label></p>
                     <p><input value = "" type="text" name="login" id="login" class="input" size="30" maxlength="50"></p>
 
@@ -40,10 +39,7 @@
 
                     <p><label for="passr">Повтор пароля:</label></p>
                     <p><input value = "" type="password" name="passr" id="passr" class="input" size="30" maxlength="30"></p>
-
-
                     <p><button name="logbut" type="submit" class="logregbut">Зарегистрироваться</button></p>
-
                 </form>
 
             </div>

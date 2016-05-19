@@ -14,7 +14,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,9 +30,8 @@ public class User extends Model {
     @Column(name = "mail")
     private String mail;
 
-    @ManyToOne
-    @JoinColumn(name = "id_role")
-    private Role rol;
+    @Column(name = "role")
+    private int rol;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private Set<Comment> comments = new HashSet<>();
@@ -49,21 +47,7 @@ public class User extends Model {
     public User(Long id) {
         super(id);
     }
-
-    public User(String login, String pass, String mail, Role rol) {
-        this.login = login;
-        this.pass = pass;
-        this.mail = mail;
-        this.rol = rol;
-    }
-
-    public User(String login, String pass, String mail, Role rol, Long id) {
-        super(id);
-        this.login = login;
-        this.pass = pass;
-        this.mail = mail;
-        this.rol = rol;
-    }
+ 
 
     public String getLogin() {
         return login;
@@ -89,11 +73,11 @@ public class User extends Model {
         this.mail = mail;
     }
 
-    public Role getRol() {
+    public int getRol() {
         return rol;
     }
 
-    public void setRol(Role rol) {
+    public void setRol(int rol) {
         this.rol = rol;
     }
 
