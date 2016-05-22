@@ -13,35 +13,44 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 public class Admin extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF//admin//index.jsp"); 
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF//admin//index.jsp");
         if (!Static.isAdmin(request, response)) {
-            dispatcher=request.getRequestDispatcher("errorpage//accessError.jsp"); 
+            dispatcher = request.getRequestDispatcher("errorpage//accessError.jsp");
             dispatcher.forward(request, response);
             return;
         }
-        
-        
 
         String page = request.getParameter("page");
-        if(page==null){
+        if (page == null) {
             dispatcher.forward(request, response);
             return;
         }
-        switch(page){
+        switch (page) {
             case "users":
-                dispatcher=request.getRequestDispatcher("ListUsers"); 
+                dispatcher = request.getRequestDispatcher("ListUsers");
                 break;
             case "addFilm":
-                dispatcher=request.getRequestDispatcher("WEB-INF//admin//add_film.jsp"); 
+                dispatcher = request.getRequestDispatcher("AddFilm");
+                break;
+            case "films":
+                dispatcher = request.getRequestDispatcher("ListFilms");
+                break;
+            case "editfilm":
+                dispatcher = request.getRequestDispatcher("EditFilm");
+                break;
+            case "addOneNews":
+                dispatcher = request.getRequestDispatcher("WEB-INF//admin//add_news.jsp");
+                break;
+            case "news":
+                dispatcher = request.getRequestDispatcher("WEB-INF//admin//news.jsp");
                 break;
             default:
-                dispatcher=request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp"); 
-        }  
+                dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
+        }
         dispatcher.forward(request, response);
     }
 
