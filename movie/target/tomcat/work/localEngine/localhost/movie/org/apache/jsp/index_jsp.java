@@ -74,7 +74,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\r\n");
       out.write("        ");
       out.write("\r\n");
-      out.write("\r\n");
       out.write("<div class=\"header\">\r\n");
       out.write("    <div class=\"headmain\">\r\n");
       out.write("        <span class=\"main\"><a href=\"index.php\">INMovie</a></span>\r\n");
@@ -86,10 +85,24 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </ul>\r\n");
       out.write("        </div>\r\n");
       out.write("    </div>\r\n");
+      out.write("    ");
+if (true) {
+      out.write("\r\n");
       out.write("    <div class=\"headbut\">\r\n");
       out.write("        <input type=\"text\" class=\"search\" placeholder=\"Искать...\">\r\n");
-      out.write("        <a href=\"logreg.php\"><input type=\"button\" class=\"login\" value=\"Вход\"></a>\r\n");
+      out.write("        <a href=\"page?operation=registration\"><input type=\"button\" class=\"login\" value=\"Вход\"></a>\r\n");
       out.write("    </div>\r\n");
+      out.write("    ");
+} else {
+      out.write("\r\n");
+      out.write("    <div class=\"headbut\">\r\n");
+      out.write("        <input type=\"text\" class=\"search\" placeholder=\"Искать...\">\r\n");
+      out.write("        <span class=\"logfield\">vovanzel&nbsp;&nbsp;&nbsp;<a href=\"\">|&nbsp;&nbsp;&nbsp;Выход</a></span>\r\n");
+      out.write("        <button type=\"submit\" class=\"watchlist\">watchlist</button>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    ");
+}
+      out.write("\r\n");
       out.write("</div>\r\n");
       out.write("\r\n");
       out.write("        <div class=\"content\">\r\n");

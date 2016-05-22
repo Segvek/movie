@@ -16,6 +16,7 @@
             <div class="ftitle">Книга Джунглей</div>
             <div class="film"> 
                 <div class="fpost"></div>
+                <div class="addto">Добавить в Watchlist</div>
                 <div class="finfo">
                     <table cols="2">
                         <tr>
