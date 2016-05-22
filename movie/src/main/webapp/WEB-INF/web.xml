@@ -16,6 +16,18 @@
         <servlet-name>ListUsers</servlet-name>
         <servlet-class>com.segvek.inmovie.admin.ListUsers</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListFilms</servlet-name>
+        <servlet-class>com.segvek.inmovie.admin.ListFilms</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditFilm</servlet-name>
+        <servlet-class>com.segvek.inmovie.admin.EditFilm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddFilm</servlet-name>
+        <servlet-class>com.segvek.inmovie.admin.AddFilm</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DotInputServlet</servlet-name>
         <url-pattern>/</url-pattern>
@@ -55,6 +67,18 @@
     <servlet-mapping>
         <servlet-name>ListUsers</servlet-name>
         <url-pattern>/ListUsers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListFilms</servlet-name>
+        <url-pattern>/ListFilms</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditFilm</servlet-name>
+        <url-pattern>/EditFilm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddFilm</servlet-name>
+        <url-pattern>/AddFilm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

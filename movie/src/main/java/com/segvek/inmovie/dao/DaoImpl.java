@@ -79,4 +79,8 @@ public class DaoImpl<T> implements Dao<T> {
             e.printStackTrace();
         }
     }
+    
+    public void closeSession(){
+        session.close();
+    }
 }
