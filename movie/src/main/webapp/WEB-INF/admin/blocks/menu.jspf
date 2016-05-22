@@ -1,0 +1,16 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="windows-1251" %>
+<div class="header"><a href="Admin">ADMINKA</a></div>
+<div class="content">
+    <ul class="menu">
+        <li><a href="Admin?page=users">Пользователи</a></li>
+        <li><a href="Admin?page=addFilm">Добавить фильм</a>
+            <ul class="hidden">
+                <li><a href="edit_film.php">Список</a></li>
+            </ul></li>
+        <li><a href="add_news.php">Добавить новость</a>
+            <ul class="hidden1">
+                <li><a href="edit_news.php">Список</a></li>
+            </ul></li>
+    </ul>
+</div>

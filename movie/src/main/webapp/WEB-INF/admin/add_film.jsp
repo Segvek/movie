@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
-        <link type="text/css" href="css/style.css" rel="stylesheet">
+        <link type="text/css" href="css/styleAdmin.css" rel="stylesheet">
         <title>ADMIN</title>
     </head>
     <body>

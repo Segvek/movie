@@ -4,6 +4,18 @@
         <servlet-name>DotInputServlet</servlet-name>
         <servlet-class>com.segvek.inmovie.EntryPointServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>com.segvek.inmovie.admin.Admin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Autorization</servlet-name>
+        <servlet-class>com.segvek.inmovie.Autorization</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListUsers</servlet-name>
+        <servlet-class>com.segvek.inmovie.admin.ListUsers</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DotInputServlet</servlet-name>
         <url-pattern>/</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.otf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/Admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Autorization</servlet-name>
+        <url-pattern>/Autorization</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListUsers</servlet-name>
+        <url-pattern>/ListUsers</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

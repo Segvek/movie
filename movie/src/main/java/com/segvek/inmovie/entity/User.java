@@ -96,5 +96,11 @@ public class User extends Model {
     public void setFilms(Set<Film> films) {
         this.films = films;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "login=" + login + ", pass=" + pass + ", mail=" + mail + ", rol=" + rol + '}';
+    }
+    
     
 }

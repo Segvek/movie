@@ -14,8 +14,7 @@
         <%@include file="blocks/header.jspf" %>
         <div class="acontlog">
             <div class="loginf">
-                <form>
-
+                <form  method="POST" action="EntryPointerServlet?operation=autorization">
                     <p><label for="login">¬ведите логин:</label></p>
                     <p><input value = "" type="text" name="login" id="login" class="input" size="30" maxlength="50"></p>
 
@@ -27,7 +26,7 @@
                 </form>
             </div>
             <div class="regf">
-                <form method="POST" action="page?operation=registrationUser">
+                <form method="POST" action="EntryPointerServlet?operation=registrationUser">
                     <p><label for="login">¬ведите логин:</label></p>
                     <p><input value = "" type="text" name="login" id="login" class="input" size="30" maxlength="50"></p>
 

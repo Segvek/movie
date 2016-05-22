@@ -1,6 +1,11 @@
-package com.segvek.inmovie;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.segvek.inmovie.admin;
 
-import com.segvek.inmovie.operation.Registration;
+import com.segvek.inmovie.Static;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,56 +13,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Panas
- */
-public class EntryPointServlet extends HttpServlet {
 
-    private Registration registrator = new Registration();
+public class Admin extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String operation = request.getParameter("operation");
-        if (operation == null) {
-            operation = "unknow";
+        RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF//admin//index.jsp"); 
+        if (!Static.isAdmin(request, response)) {
+            dispatcher=request.getRequestDispatcher("errorpage//accessError.jsp"); 
+            dispatcher.forward(request, response);
+            return;
         }
+        
+        
 
-        String address = null;
-
-        switch (operation) {
-            case "film": {
-                address = "view_film.jsp";
+        String page = request.getParameter("page");
+        if(page==null){
+            dispatcher.forward(request, response);
+            return;
+        }
+        switch(page){
+            case "users":
+                dispatcher=request.getRequestDispatcher("ListUsers"); 
                 break;
-            }
-            case "registration": {
-                address = "logreg.jsp";
+            case "addFilm":
+                dispatcher=request.getRequestDispatcher("WEB-INF//admin//add_film.jsp"); 
                 break;
-            }
-            case "registrationUser": {
-                registrator.setRequest(request);
-                registrator.setResponse(response);
-                if (registrator.registration()) {
-                    address = "index.jsp";
-                } else {
-                    address = "logreg.jsp";
-                }
-                break;
-            }
-            case "autorization":{
-                address = "Autorization";
-                break;
-            }
             default:
-                address = "index.jsp";
-        }
-
-//        try {
-//            new DaoImpl<>(Role.class).addEntity(new Role("Администратор"));
-//        } catch (SQLException ex) {
-//            Logger.getLogger(EntryPointServlet.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+                dispatcher=request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp"); 
+        }  
         dispatcher.forward(request, response);
     }
 
