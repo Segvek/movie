@@ -10,8 +10,16 @@
             </ul>
         </div>
     </div>
+    <%if (true) {%>
     <div class="headbut">
         <input type="text" class="search" placeholder="Искать...">
         <a href="page?operation=registration"><input type="button" class="login" value="Вход"></a>
     </div>
+    <%} else {%>
+    <div class="headbut">
+        <input type="text" class="search" placeholder="Искать...">
+        <span class="logfield">vovanzel&nbsp;&nbsp;&nbsp;<a href="">|&nbsp;&nbsp;&nbsp;Выход</a></span>
+        <button type="submit" class="watchlist">watchlist</button>
+    </div>
+    <%}%>
 </div>

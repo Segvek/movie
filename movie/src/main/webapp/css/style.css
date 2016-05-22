@@ -96,10 +96,21 @@ ul{
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
+    font-family: 'P22 Underground CY Pro';
 }
 .login:hover{
     background-color: #DCDCDC;
     color: #000;
+}
+.logfield{
+    font-size: 17px;
+    color: #fff;
+    font-family: 'P22 Underground CY Pro';
+    position: relative;
+    top: 0;
+}
+.logfield a{
+    color: #fff;
 }
 .reg{
     margin-left: 5px;
@@ -517,4 +528,63 @@ td{
     background-color: #fff;
     color: #000;	
 }
-
+.watchlist{
+    width: 10%;
+    margin-left: 2%;
+    position: absolute;
+    top: 5%;
+    right: 18%;
+    background-color: #2F4F4F;
+    color: white;
+    border: none;
+    padding: 0;
+    border: 3px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.watchlist:hover{
+    background-color: #DCDCDC;
+    color: #000;
+}
+.delbutton{
+    width: 15%;
+    margin-left: 21%;
+    margin-top: 6%;
+    background-color: #2F4F4F;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    float: left;
+    text-align: center;
+    font-family: 'P22 Underground CY Pro';
+}
+.delbutton:hover{
+    background-color: #DCDCDC;
+    color: #000;
+}
+.addto{
+    position: absolute;
+    width: 13%;
+    top: 77%;
+    left: 18.5%;
+    background-color: #2F4F4F;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    float: left;
+    text-align: center;
+    font-family: 'P22 Underground CY Pro';
+}
+.addto:hover{
+    background-color: #DCDCDC;
+    color: #000;
+}
