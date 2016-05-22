@@ -1,10 +1,12 @@
 <%-- 
     Document   : add_film
     Created on : 19.05.2016, 20:29:06
-    Author     : Владимир
+    Author     : Р’Р»Р°РґРёРјРёСЂ
 --%>
 
-<%@page contentType="text/html" pageEncoding="windows-1251"%>
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<%@page import="com.segvek.inmovie.entity.Janr"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -13,63 +15,61 @@
         <title>ADMIN</title>
     </head>
     <body>
-
         <%@include file="blocks/menu.jspf" %>
-        <form>
-            <p><label for="name">Введите название фильма:</label></p>
+        <form method="POST" action="Admin?page=films&operation=add">
+            <p><label for="name">Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„РёР»СЊРјР°:</label></p>
             <p><input type="text" name="name" class="input" size="50" maxlength="50"></p>
 
-            <p><label for="year">Введите год:</label></p>
+            <p><label for="year">Р’РІРµРґРёС‚Рµ РіРѕРґ:</label></p>
             <p><input type="text" name="year" class="input" size="10" maxlength="4"></p>
 
-            <p><label for="county">Введите страну:</label></p>
+            <p><label for="county">Р’РІРµРґРёС‚Рµ СЃС‚СЂР°РЅСѓ:</label></p>
             <p><input type="text" name="county" class="input" size="50" maxlength="20"></p>
 
-            <p><label for="regeser">Введите режисеров:</label></p>
+            <p><label for="regeser">Р’РІРµРґРёС‚Рµ СЂРµР¶РёСЃРµСЂРѕРІ:</label></p>
             <p><input type="text" name="regeser" class="input" size="50" maxlength="255"></p>
 
-            <p><label for="schenarist">Введите сценаристов:</label></p>
+            <p><label for="schenarist">Р’РІРµРґРёС‚Рµ СЃС†РµРЅР°СЂРёСЃС‚РѕРІ:</label></p>
             <p><input type="text" name="schenarist" class="input" size="50" maxlength="255"></p>
 
-            <p><label for="producer">Введите продюсеров:</label></p>
+            <p><label for="producer">Р’РІРµРґРёС‚Рµ РїСЂРѕРґСЋСЃРµСЂРѕРІ:</label></p>
             <p><input type="text" name="producer" class="input" size="50" maxlength="255"></p>
 
-            <p><label for="kompositor">Введите композиторов:</label></p>
+            <p><label for="kompositor">Р’РІРµРґРёС‚Рµ РєРѕРјРїРѕР·РёС‚РѕСЂРѕРІ:</label></p>
             <p><input type="text" name="kompositor" class="input" size="50" maxlength="255"></p>
 
-            <p><label for="janr">Введите жанр:</label></p>
+            <p><label for="janr">Р’РІРµРґРёС‚Рµ Р¶Р°РЅСЂ:</label></p>
             <p><select multiple="multiple" name="janr"> 
-                    <option>комедия</option>
-                    <option>ужасы</option>
-                    <option>драма</option>
-                    <option>фантастика</option>
-                    <option>приключения</option>
-                    <option>триллер</option>
+                    <%for (Janr janr : (List<Janr>) request.getAttribute("janrs")) {%>
+                    <option value="<%=janr.getId()%>"><%=janr.getName()%></option>
+                    <%}%>
                 </select></p>
 
-            <p><label for="sbory">Введите сборы:</label></p>
+            <p><label for="budget">Р’РІРµРґРёС‚Рµ Р±СЋРґР¶РµС‚:</label></p>
+            <p><input type="file" name="budget" class="input" ></p>
+            <p><label for="sbory">Р’РІРµРґРёС‚Рµ СЃР±РѕСЂС‹:</label></p>
             <p><input type="text" name="sbory" class="input" size="30" maxlength="50"></p>
 
-            <p><label for="premera">Введите дату премьеры:</label></p>
+            <p><label for="premera">Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РїСЂРµРјСЊРµСЂС‹:</label></p>
             <p><input type="text" name="premera" class="input" size="10" maxlength="10"></p>
 
-            <p><label for="time">Введите длительность фильма:</label></p>
+            <p><label for="time">Р’РІРµРґРёС‚Рµ РґР»РёС‚РµР»СЊРЅРѕСЃС‚СЊ С„РёР»СЊРјР°:</label></p>
             <p><input type="text" name="time" class="input" size="10" maxlength="10"></p>
 
-            <p><label for="atRore">Введите список актеров:</label></p>
+            <p><label for="atRore">Р’РІРµРґРёС‚Рµ СЃРїРёСЃРѕРє Р°РєС‚РµСЂРѕРІ:</label></p>
             <p><textarea name="atRore" cols="40" rows="5"></textarea></p>
 
-            <p><label for="anotation">Введите описание фильма:</label></p>
+            <p><label for="anotation">Р’РІРµРґРёС‚Рµ РѕРїРёСЃР°РЅРёРµ С„РёР»СЊРјР°:</label></p>
             <p><textarea name="anotation" cols="80" rows="15" id="description"></textarea></p>
 
-            <p><label for="linkVideo">Введите ссылку на трейлер:</label></p>
+            <p><label for="linkVideo">Р’РІРµРґРёС‚Рµ СЃСЃС‹Р»РєСѓ РЅР° С‚СЂРµР№Р»РµСЂ:</label></p>
             <p><input type="text" name="linkVideo" class="input" size="40"></p>
 
-            <p><label for="patchImage">Выберите файл постера:</label></p>
-            <p><input type="file" name="patchImage" class="input"></p>
+            <p><label for="patchImage">Р’С‹Р±РµСЂРёС‚Рµ С„Р°Р№Р» РїРѕСЃС‚РµСЂР°:</label></p>
+            <p><input type="test" name="patchImage" class="input" size="40"></p>
 
 
-            <p><button name="add_film" type="submit">Добавить</button></p>
+            <p><button name="add_film" type="submit">Р”РѕР±Р°РІРёС‚СЊ</button></p>
 
         </form>
     </body>

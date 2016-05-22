@@ -55,7 +55,7 @@ public class Film extends Model {
     @Column(name = "atRore")
     private String atRore;
 
-    @Column(name = "anotation")
+    @Column(name = "anotation", length = Integer.MAX_VALUE)
     private String anotation;
 
     @Column(name = "linkVideo")

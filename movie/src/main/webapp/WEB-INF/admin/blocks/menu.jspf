@@ -6,11 +6,11 @@
         <li><a href="Admin?page=users">Пользователи</a></li>
         <li><a href="Admin?page=addFilm">Добавить фильм</a>
             <ul class="hidden">
-                <li><a href="edit_film.php">Список</a></li>
+                <li><a href="Admin?page=films">Список</a></li>
             </ul></li>
-        <li><a href="add_news.php">Добавить новость</a>
+        <li><a href="Admin?page=addOneNews">Добавить новость</a>
             <ul class="hidden1">
-                <li><a href="edit_news.php">Список</a></li>
+                <li><a href="Admin?page=news">Список</a></li>
             </ul></li>
     </ul>
 </div>
