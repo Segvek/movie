@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.segvek.inmovie.operation;
 
 import com.segvek.inmovie.dao.Dao;
 import com.segvek.inmovie.dao.DaoImpl;
+import com.segvek.inmovie.db.HibernateUtil;
 import com.segvek.inmovie.entity.Film;
 import com.segvek.inmovie.entity.Janr;
 import com.segvek.inmovie.entity.User;
@@ -17,6 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 /**
  *
@@ -47,30 +45,40 @@ public class EditFilms {
         String budget = request.getParameter("budget");
         String time = request.getParameter("time");
 
-        Set<Janr> janrs = new HashSet<>();
         String janrsString[] = request.getParameterValues("janr");
 
-        DaoImpl daoJanr = new DaoImpl(Janr.class);
-        for (int i = 0; i < janrsString.length; i++) {
-            Long id = Long.parseLong(janrsString[i]);
-            Janr janr = null;
-            try {
-                janr = (Janr) daoJanr.getEntity(id);
-            } catch (SQLException ex) {
-                Logger.getLogger(FilmAdd.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            janrs.add(janr);
-        }
-        daoJanr.closeSession();
-        
-        Dao daoFilm = new DaoImpl(Film.class);
-        Film film=null;
+        //загрузка фильма
+        DaoImpl daoFilm = new DaoImpl(Film.class);
+        Film film = null;
         try {
             film = (Film) daoFilm.getEntity(idfilm);
         } catch (SQLException ex) {
             Logger.getLogger(EditFilms.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        //очистка старых связей с жанрами 
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String sql = "delete from janr_film where film_id= "+film.getId();
+        Query query = session.createSQLQuery(sql);
+        query.executeUpdate();
+        session.close();
+
+        //Создание связей с жанрами
+        Set<Janr> janrs = new HashSet<>();
+        try {
+            DaoImpl<Janr> daoJanr = new DaoImpl<>(Janr.class);
+            for (int i = 0; i < janrsString.length; i++) {
+                Long id = Long.parseLong(janrsString[i]);
+                Janr janr = daoJanr.getEntity(id);
+                janrs.add(janr);
+                janr.getFilms().add(film);
+            }
+            daoJanr.closeSession();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         film.setJanrs(janrs);
+
         film.setName(name);
         film.setAnotation(anotation);
         film.setAtRore(atRore);
@@ -88,7 +96,7 @@ public class EditFilms {
         film.setTime(time);
 
         try {
-            daoJanr.updateEntity(film);
+            daoFilm.updateEntity(film);
         } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
             return false;

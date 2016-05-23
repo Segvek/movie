@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.segvek.inmovie.admin;
 
 import com.segvek.inmovie.Static;
+import com.segvek.inmovie.dao.Dao;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.Film;
 import com.segvek.inmovie.operation.EditFilms;
@@ -29,6 +25,7 @@ public class ListFilms extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF//admin//films.jsp");
 
         if (!Static.isAdmin(request, response)) {
@@ -48,18 +45,18 @@ public class ListFilms extends HttpServlet {
 //                String search = request.getParameter("searchUser");
 ////                users = getSearchUsers(search);
 //                break;
-//            case "del":
-//                String delId = request.getParameter("id");
-//                Long id = Long.parseLong(delId);
-//                Dao dao = new DaoImpl<>(User.class);
-//                try {
-//                    User user = (User) dao.getEntity(id);
-//                    dao.deleteEntity(user);
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(ListUsers.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//                films = getAllFilms();
-//                break;
+            case "dell":
+                String delId = request.getParameter("id");
+                Long id = Long.parseLong(delId);
+                Dao dao = new DaoImpl<>(Film.class);
+                try {
+                    Film film = (Film) dao.getEntity(id);
+                    dao.deleteEntity(film);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ListUsers.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                films = getAllFilms();
+                break;
             case "add":
                 FilmAdd addFilm = new FilmAdd();
                 addFilm.setRequest(request);
@@ -91,12 +88,15 @@ public class ListFilms extends HttpServlet {
 
         request.setAttribute("films", films);
         dispatcher.forward(request, response);
+        
     }
 
     public List<Film> getAllFilms() {
         List<Film> films = null;
         try {
-            films = new DaoImpl<>(Film.class).getListEntity();
+            DaoImpl<Film> dao = new DaoImpl<>(Film.class);
+            films = dao.getListEntity();
+            dao.closeSession();
         } catch (SQLException ex) {
             Logger.getLogger(ListFilms.class.getName()).log(Level.SEVERE, null, ex);
         }

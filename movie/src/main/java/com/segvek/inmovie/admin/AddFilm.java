@@ -22,6 +22,7 @@ public class AddFilm extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF//admin//add_film.jsp");
 
         if (!Static.isAdmin(request, response)) {
