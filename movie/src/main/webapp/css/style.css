@@ -588,3 +588,29 @@ td{
     background-color: #DCDCDC;
     color: #000;
 }
+.opacity{
+    width: 100%;
+    background-color: #000;
+}
+.logalert{
+    font-family: 'Rotonda Bold';
+    position: absolute;
+    top: 15%;
+    left: 23%;
+    color: red;
+}
+.regalert{
+    font-family: 'Rotonda Bold';
+    position: absolute;
+    top: 15%;
+    left: 54.5%;
+    color: red;
+    display: none;
+}
+.regalert2{
+    font-family: 'Rotonda Bold';
+    position: absolute;
+    top: 15%;
+    left: 61.5%;
+    color: red;
+}
