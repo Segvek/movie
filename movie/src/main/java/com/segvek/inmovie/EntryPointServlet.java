@@ -44,6 +44,18 @@ public class EntryPointServlet extends HttpServlet {
                 }
                 break;
             }
+            case "affiche":{
+                address = "affiche.jsp";
+                break;
+            }
+            case "trailers":{
+                address = "trailers.jsp";
+                break;
+            }
+            case "news":{
+                address = "news.jsp";
+                break;
+            }
             case "autorization":{
                 address = "Autorization";
                 break;

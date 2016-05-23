@@ -4,9 +4,9 @@
         <span class="main"><a href="index.php">INMovie</a></span>
         <div class="menu">
             <ul>
-                <li><a href="affiche.php">Афиша</a></li>
-                <li><a href="trailers.php">Трейлеры</a></li>
-                <li><a href="news.php">Новости</a></li> 
+                <li><a href="EntryPointServlet?operation=affiche">Афиша</a></li>
+                <li><a href="EntryPointServlet?operation=trailers">Трейлеры</a></li>
+                <li><a href="EntryPointServlet?operation=news">Новости</a></li> 
             </ul>
         </div>
     </div>
