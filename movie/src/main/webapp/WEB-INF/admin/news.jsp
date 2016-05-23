@@ -17,19 +17,10 @@
         <div class="flist">
             <table>
                 <tr>
-                    <td>id</td>
-                    <td>name</td>
-                    <td class="del"><a href="">edit</a></td>
-                    <td class="del"><a href="">del</a></td>
+                    <th>Название</th>
+                    <th colspan="2">Действие</th>
                 </tr>
                 <tr>
-                    <td>id</td>
-                    <td>name</td>
-                    <td class="del"><a href="">edit</a></td>
-                    <td class="del"><a href="">del</a></td>
-                </tr>
-                <tr>
-                    <td>id</td>
                     <td>name</td>
                     <td class="del"><a href="">edit</a></td>
                     <td class="del"><a href="">del</a></td>
