@@ -17,6 +17,7 @@ public class Admin extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF//admin//index.jsp");
         if (!Static.isAdmin(request, response)) {
             dispatcher = request.getRequestDispatcher("errorpage//accessError.jsp");

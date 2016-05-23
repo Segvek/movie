@@ -7,7 +7,7 @@ import com.segvek.inmovie.entity.Janr;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import static java.util.Collections.list;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +21,7 @@ public class EditFilm extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF//admin//edit_film.jsp");
 
         if (!Static.isAdmin(request, response)) {
@@ -36,11 +37,14 @@ public class EditFilm extends HttpServlet {
             dispatcher.forward(request, response);
             return;
         }
+        
+        
         Long id = 0L;
         Film film=null;
+        DaoImpl<Film> dao = new DaoImpl<>(Film.class);
         try {
             id = Long.parseLong(idString);
-            film = new DaoImpl<>(Film.class).getEntity(id);
+            film = dao.getEntity(id);
         } catch (SQLException ex) {
             Logger.getLogger(EditFilm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException e) {
@@ -48,9 +52,11 @@ public class EditFilm extends HttpServlet {
         }
         
         List<Janr> janrs = getAllJanrs();
+//        List<Janr> janrs=new ArrayList<>();
         request.setAttribute("janrs",janrs);
         request.setAttribute("film", film);
         dispatcher.forward(request, response);
+        dao.closeSession();
     }
 
     public List<Janr> getAllJanrs(){

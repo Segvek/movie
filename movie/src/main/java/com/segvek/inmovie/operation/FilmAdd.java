@@ -22,7 +22,7 @@ public class FilmAdd {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    private Dao dao = new DaoImpl(User.class);
+    private DaoImpl dao = new DaoImpl(User.class);
 
     public boolean add() {
 
@@ -42,23 +42,29 @@ public class FilmAdd {
         String budget = request.getParameter("budget");
         String time = request.getParameter("time");
 
-        Set<Janr> janrs = new HashSet<>();
+        
         String janrsString[] = request.getParameterValues("janr");
         
-        Dao dao = new DaoImpl(Janr.class);
-        for (int i = 0; i < janrsString.length; i++) {
-            Long id = Long.parseLong(janrsString[i]);
-            Janr janr = null;
-            try {
-                janr = (Janr) dao.getEntity(id);
-            } catch (SQLException ex) {
-                Logger.getLogger(FilmAdd.class.getName()).log(Level.SEVERE, null, ex);
+        Set<Janr> janrs =new HashSet<>();
+        Film film= new Film();
+        try{
+            DaoImpl<Janr> daoJanr = new DaoImpl<>(Janr.class);
+            for (int i = 0; i < janrsString.length; i++) {
+                Long id = Long.parseLong(janrsString[i]);
+                Janr janr = daoJanr.getEntity(id);
+                janrs.add(janr);
+                janr.getFilms().add(film);
             }
-            janrs.add(janr);
+            daoJanr.closeSession();
+        }catch(SQLException e){
+            e.printStackTrace();
         }
-
-        Film film = new Film();
+        
         film.setJanrs(janrs);
+        
+        
+        
+        
         film.setName(name);
         film.setAnotation(anotation);
         film.setAtRore(atRore);
@@ -77,6 +83,7 @@ public class FilmAdd {
         
         try {
             dao.addEntity(film);
+            dao.closeSession();
         } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
             return false;
