@@ -4,7 +4,10 @@
     Author     : Владимир
 --%>
 
+<%@page import="com.segvek.inmovie.entity.News"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="windows-1251"%>
+<% List<News> news = (List<News>) request.getAttribute("news");%>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -20,11 +23,12 @@
                     <th>Название</th>
                     <th colspan="2">Действие</th>
                 </tr>
+                <% for(News onenews:news) {%>
                 <tr>
-                    <td>name</td>
-                    <td class="del"><a href="">edit</a></td>
-                    <td class="del"><a href="">del</a></td>
-                </tr>
+                    <td><%=onenews.getTitle()%></td>
+                    <td class="del"><a href="Admin?page=editnews&id=<%=onenews.getId()%>">edit</a></td>
+                    <td class="del"><a href="Admin?page=news&operation=dell&id=<%=onenews.getId()%>">del</a></td>
+                </tr><%}%>
             </table>
         </div>
     </body>

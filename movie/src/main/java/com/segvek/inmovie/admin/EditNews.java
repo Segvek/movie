@@ -6,55 +6,47 @@
 package com.segvek.inmovie.admin;
 
 import com.segvek.inmovie.Static;
+import com.segvek.inmovie.dao.DaoImpl;
+import com.segvek.inmovie.entity.News;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Admin extends HttpServlet {
+/**
+ *
+ * @author Владимир
+ */
+public class EditNews extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF//admin//index.jsp");
+        response.setContentType("text/html;charset=UTF-8");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF//admin//edit_news.jsp");
+
         if (!Static.isAdmin(request, response)) {
             dispatcher = request.getRequestDispatcher("errorpage//accessError.jsp");
             dispatcher.forward(request, response);
             return;
         }
 
-        String page = request.getParameter("page");
-        if (page == null) {
+        DaoImpl daoNews = new DaoImpl(News.class);
+        News news = null;
+        Long idnews = Long.parseLong(request.getParameter("id"));
+        try {
+            news = (News) daoNews.getEntity(idnews);
+        } catch (Exception ex) {
+            Logger.getLogger(com.segvek.inmovie.operation.EditNews.class.getName()).log(Level.SEVERE, null, ex);
+            dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
             dispatcher.forward(request, response);
-            return;
         }
-        switch (page) {
-            case "users":
-                dispatcher = request.getRequestDispatcher("ListUsers");
-                break;
-            case "addFilm":
-                dispatcher = request.getRequestDispatcher("AddFilm");
-                break;
-            case "films":
-                dispatcher = request.getRequestDispatcher("ListFilms");
-                break;
-            case "editfilm":
-                dispatcher = request.getRequestDispatcher("EditFilm");
-                break;
-            case "addOneNews":
-                dispatcher = request.getRequestDispatcher("WEB-INF//admin//add_news.jsp");
-                break;
-            case "news":
-                dispatcher = request.getRequestDispatcher("News");
-                break;
-            case "editnews":
-                dispatcher = request.getRequestDispatcher("EditNews");
-                break;
-            default:
-                dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
-        }
+        request.setAttribute("news", news);
         dispatcher.forward(request, response);
     }
 

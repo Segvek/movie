@@ -28,6 +28,14 @@
         <servlet-name>AddFilm</servlet-name>
         <servlet-class>com.segvek.inmovie.admin.AddFilm</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>News</servlet-name>
+        <servlet-class>com.segvek.inmovie.admin.ListNews</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditNews</servlet-name>
+        <servlet-class>com.segvek.inmovie.admin.EditNews</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DotInputServlet</servlet-name>
         <url-pattern>/</url-pattern>
@@ -79,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>AddFilm</servlet-name>
         <url-pattern>/AddFilm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>News</servlet-name>
+        <url-pattern>/News</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditNews</servlet-name>
+        <url-pattern>/EditNews</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
