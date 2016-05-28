@@ -45,7 +45,7 @@ public class EntryPointServlet extends HttpServlet {
                 break;
             }
             case "affiche":{
-                address = "affiche.jsp";
+                address = "Affiche";
                 break;
             }
             case "trailers":{
@@ -60,6 +60,13 @@ public class EntryPointServlet extends HttpServlet {
                 address = "Autorization";
                 break;
             }
+            
+            case "exit":{
+                request.getSession().setAttribute("user", null);
+                address = "index.jsp";
+                break;
+            }
+                
             default:
                 address = "index.jsp";
         }

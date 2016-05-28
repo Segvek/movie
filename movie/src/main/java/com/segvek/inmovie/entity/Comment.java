@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "comment")
 public class Comment extends Model {
 
-    @Column(name = "comment")
+    @Column(name = "comment", length = Integer.MAX_VALUE)
     private String comment;
 
     @ManyToOne

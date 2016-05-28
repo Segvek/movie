@@ -15,7 +15,7 @@ public class News extends Model{
     @Column(name = "patchImage")
     private String patchImage;
     
-    @Column(name = "content")
+    @Column(name = "content", length = Integer.MAX_VALUE)
     private String content;
 
     public News() {
