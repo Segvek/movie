@@ -17,7 +17,7 @@
         <form method="POST" action="Admin?page=news&operation=add">
 
             <p><label for="title">Введите название новости:</label></p>
-            <p><input type="text" name="title" class="input" size="50" maxlength="50"></p>
+            <p><input type="text" name="title" class="input" size="50" maxlength="255"></p>
 
             <p><label for="content">Введите текст новости:</label></p>
             <p><textarea name="content" cols="80" rows="15" id="text"></textarea></p>

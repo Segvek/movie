@@ -24,7 +24,7 @@
             <p><input type="text" name="year" class="input" size="10" maxlength="4"></p>
 
             <p><label for="county">Введите страну:</label></p>
-            <p><input type="text" name="county" class="input" size="50" maxlength="20"></p>
+            <p><input type="text" name="county" class="input" size="50" maxlength="100"></p>
 
             <p><label for="regeser">Введите режисеров:</label></p>
             <p><input type="text" name="regeser" class="input" size="50" maxlength="255"></p>
@@ -46,12 +46,13 @@
                 </select></p>
 
             <p><label for="budget">Введите бюджет:</label></p>
-            <p><input type="file" name="budget" class="input" ></p>
+            <p><input type="text" name="budget" class="input" size="30"></p>
+            
             <p><label for="sbory">Введите сборы:</label></p>
             <p><input type="text" name="sbory" class="input" size="30" maxlength="50"></p>
 
             <p><label for="premera">Введите дату премьеры:</label></p>
-            <p><input type="text" name="premera" class="input" size="10" maxlength="10"></p>
+            <p><input type="text" name="premera" class="input" size="10" maxlength="20"></p>
 
             <p><label for="time">Введите длительность фильма:</label></p>
             <p><input type="text" name="time" class="input" size="10" maxlength="10"></p>
