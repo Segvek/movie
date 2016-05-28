@@ -1,4 +1,6 @@
+<%@page import="com.segvek.inmovie.entity.User"%>
 <%@ page pageEncoding="windows-1251" %>
+<% User user = (User) request.getSession().getAttribute("user"); %>
 <div class="header">
     <div class="headmain">
         <span class="main"><a href="index.php">INMovie</a></span>
@@ -10,7 +12,7 @@
             </ul>
         </div>
     </div>
-    <%if (true) {%>
+    <%if (user == null) {%>
     <div class="headbut">
         <input type="text" class="search" placeholder="Искать...">
         <a href="page?operation=registration"><input type="button" class="login" value="Вход"></a>
@@ -18,7 +20,7 @@
     <%} else {%>
     <div class="headbut">
         <input type="text" class="search" placeholder="Искать...">
-        <span class="logfield">vovanzel&nbsp;&nbsp;&nbsp;<a href="">|&nbsp;&nbsp;&nbsp;Выход</a></span>
+        <span class="logfield"><%=user.getLogin()%>&nbsp;&nbsp;&nbsp;<a href="EntryPointServlet?operation=exit">|&nbsp;&nbsp;&nbsp;Выход</a></span>
         <button type="submit" class="watchlist">watchlist</button>
     </div>
     <%}%>

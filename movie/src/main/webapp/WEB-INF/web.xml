@@ -36,6 +36,10 @@
         <servlet-name>EditNews</servlet-name>
         <servlet-class>com.segvek.inmovie.admin.EditNews</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Affiche</servlet-name>
+        <servlet-class>com.segvek.inmovie.Affiche</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DotInputServlet</servlet-name>
         <url-pattern>/</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>EditNews</servlet-name>
         <url-pattern>/EditNews</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Affiche</servlet-name>
+        <url-pattern>/Affiche</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
