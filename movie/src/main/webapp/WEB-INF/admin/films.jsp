@@ -17,6 +17,13 @@
     </head>
     <body>
         <%@include file="blocks/menu.jspf" %>
+        <form method="POST" action="Admin?page=users&operation=search">
+            <p>
+                <label for="suser">Поиск фильма: </label>
+                <input value = "" type="text" name="searchUser" id="suser" class="input" size="20" maxlength="50">
+                <button name="search_user" type="submit">Поиск</button>
+            </p>
+        </form>
         <div class="flist">
             <table>
                 <tr>

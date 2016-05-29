@@ -21,29 +21,29 @@
         <%@include file="blocks/menu.jspf" %>
         <form method="POST" action="Admin?page=films&operation=edit&id=<%=film.getId()%>">
             <p><label for="name">Введите название фильма:</label></p>
-            <p><input type="text" name="name" class="input" size="50" maxlength="50" value="<%=film.getName()%>"></p>
+            <p><input type="text" name="name" class="input" size="50" maxlength="50" value="<%=film.getName()%>" required></p>
 
             <p><label for="year">Введите год:</label></p>
-            <p><input type="text" name="year" class="input" size="10" maxlength="4" value="<%=film.getYear()%>"></p>
+            <p><input type="text" name="year" class="input" size="10" maxlength="4" value="<%=film.getYear()%>" required></p>
 
             <p><label for="county">Введите страну:</label></p>
-            <p><input type="text" name="county" class="input" size="50" maxlength="20" value="<%=film.getCounty()%>"></p>
+            <p><input type="text" name="county" class="input" size="50" maxlength="20" value="<%=film.getCounty()%>" required></p>
 
             <p><label for="regeser">Введите режисеров:</label></p>
-            <p><input type="text" name="regeser" class="input" size="50" maxlength="255" value="<%=film.getRegeser()%>"></p>
+            <p><input type="text" name="regeser" class="input" size="50" maxlength="255" value="<%=film.getRegeser()%>" required></p>
 
             <p><label for="schenarist">Введите сценаристов:</label></p>
-            <p><input type="text" name="schenarist" class="input" size="50" maxlength="255" value="<%=film.getSchenarist()%>"></p>
+            <p><input type="text" name="schenarist" class="input" size="50" maxlength="255" value="<%=film.getSchenarist()%>" required></p>
 
             <p><label for="producer">Введите продюсеров:</label></p>
-            <p><input type="text" name="producer" class="input" size="50" maxlength="255" value="<%=film.getProduser()%>"></p>
+            <p><input type="text" name="producer" class="input" size="50" maxlength="255" value="<%=film.getProduser()%>" required></p>
 
             <p><label for="kompositor">Введите композиторов:</label></p>
-            <p><input type="text" name="kompositor" class="input" size="50" maxlength="255" value="<%=film.getKompositor()%>"></p>
+            <p><input type="text" name="kompositor" class="input" size="50" maxlength="255" value="<%=film.getKompositor()%>" required></p>
 
             <p><label for="janr">Введите жанр:</label></p>
             <p>
-                <select multiple="multiple" name="janr"> 
+                <select multiple="multiple" name="janr" required> 
                     <%for (Janr janr : (List<Janr>) request.getAttribute("janrs")) {
                             boolean flug = false;
                             for (Janr janrFilm : film.getJanrs()) {
@@ -61,31 +61,32 @@
 
 
             <p><label for="budget">Введите бюджет:</label></p>
-            <p><input type="file" name="budget" class="input" value="<%=film.getBudget()%>"></p>
+            <p><input type="file" name="budget" class="input" value="<%=film.getBudget()%>" required></p>
+            
             <p><label for="sbory">Введите сборы:</label></p>
-            <p><input type="text" name="sbory" class="input" size="30" maxlength="50" value="<%=film.getSbory()%>"></p>
+            <p><input type="text" name="sbory" class="input" size="30" maxlength="50" value="<%=film.getSbory()%>" required></p>
 
             <p><label for="premera">Введите дату премьеры:</label></p>
-            <p><input type="text" name="premera" class="input" size="10" maxlength="10" value="<%=film.getPremera()%>"></p>
+            <p><input type="text" name="premera" class="input" size="10" maxlength="10" value="<%=film.getPremera()%>" required></p>
 
             <p><label for="time">Введите длительность фильма:</label></p>
-            <p><input type="text" name="time" class="input" size="10" maxlength="10" value="<%=film.getTime()%>"></p>
+            <p><input type="text" name="time" class="input" size="10" maxlength="10" value="<%=film.getTime()%>" required></p>
 
             <p><label for="atRore">Введите список актеров:</label></p>
-            <p><textarea name="atRore" cols="40" rows="5">
+            <p><textarea name="atRore" cols="40" rows="5" required>
                     <%=film.getAtRore()%>
                 </textarea></p>
 
             <p><label for="anotation">Введите описание фильма:</label></p>
-            <p><textarea name="anotation" cols="80" rows="15" id="description">
+            <p><textarea name="anotation" cols="80" rows="15" id="description" required>
                     <%=film.getAnotation()%>
                 </textarea></p>
 
             <p><label for="linkVideo">Введите ссылку на трейлер:</label></p>
-            <p><input type="text" name="linkVideo" class="input" size="40" value="<%=film.getLinkVideo()%>"></p>
+            <p><input type="text" name="linkVideo" class="input" size="40" value="<%=film.getLinkVideo()%>" required></p>
 
             <p><label for="patchImage">Выберите файл постера:</label></p>
-            <p><input type="text" name="patchImage" class="input" value="<%=film.getPatchImage()%>" size="40"></p>
+            <p><input type="text" name="patchImage" class="input" value="<%=film.getPatchImage()%>" size="40" required></p>
 
 
             <p><button name="add_film" type="submit">Сохранить</button></p>

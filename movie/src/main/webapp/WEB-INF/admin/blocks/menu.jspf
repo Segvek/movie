@@ -1,6 +1,8 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="windows-1251" %>
-<div class="header"><a href="Admin">ADMIN PANEL</a></div>
+<div class="header"><a href="Admin">ADMIN PANEL</a>
+    <button type="submit" name="exit" class="exit">ВЫХОД</button>
+</div>
 <div class="content">
     <ul class="menu">
         <li><a href="Admin?page=users">Пользователи</a></li>

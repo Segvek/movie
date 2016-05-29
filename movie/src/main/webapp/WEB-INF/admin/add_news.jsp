@@ -17,15 +17,17 @@
         <form method="POST" action="Admin?page=news&operation=add">
 
             <p><label for="title">Введите название новости:</label></p>
-            <p><input type="text" name="title" class="input" size="50" maxlength="255"></p>
+            <p><input type="text" name="title" class="input" size="50" maxlength="255" required></p>
 
             <p><label for="content">Введите текст новости:</label></p>
-            <p><textarea name="content" cols="80" rows="15" id="text"></textarea></p>
+            <p><textarea name="content" cols="80" rows="15" id="text" required></textarea></p>
 
             <p><label for="patchImage">Выберите файл картинки:</label></p>
-            <p><input type="text" name="patchImage" class="input" size="50"></p>
+            <p><input type="text" name="patchImage" class="input" size="50" required></p>
 
-            <p><button name="add_film" type="submit">Добавить</button></p>
+            <p><button name="add_news" type="submit">Добавить</button>
+                <button name="reset" type="reset">Сбросить</button>
+            </p>
 
         </form>
     </body>

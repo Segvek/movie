@@ -110,3 +110,27 @@ table{
 .flist{
     margin: 3%;
 }
+.exit{
+    position: relative;
+    width: 13%;
+    left: 85%;
+    margin-top: 2.5%;
+    background-color: #2F4F4F;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    float: left;
+    text-align: center;
+    font-family: 'P22 Underground CY Pro';
+}
+.exit:hover{
+    background-color: #fff;
+    color: #000;
+}
+th{
+    text-align: center;
+}

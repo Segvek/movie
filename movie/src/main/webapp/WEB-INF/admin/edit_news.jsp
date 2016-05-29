@@ -20,15 +20,15 @@
         <form method="POST" action="Admin?page=news&operation=edit&id=<%=news.getId()%>">
 
             <p><label for="title">Введите название новости:</label></p>
-            <p><input type="text" name="title" class="input" size="50" maxlength="50" value="<%=news.getTitle()%>"></p>
+            <p><input type="text" name="title" class="input" size="50" maxlength="50" value="<%=news.getTitle()%>" required></p>
 
             <p><label for="content">Введите текст новости:</label></p>
-            <p><textarea name="content" cols="80" rows="15" id="text"><%=news.getContent()%></textarea></p>
+            <p><textarea name="content" cols="80" rows="15" id="text" required><%=news.getContent()%></textarea></p>
 
             <p><label for="patchImage">Выберите файл картинки:</label></p>
-            <p><input type="text" name="patchImage" class="input" value="<%=news.getPatchImage()%>"></p>
+            <p><input type="text" name="patchImage" class="input" value="<%=news.getPatchImage()%>" required></p>
 
-            <p><button name="add_film" type="submit">Добавить</button></p>
+            <p><button name="edit_news" type="submit">Сохранить</button></p>
 
         </form>
     </body>

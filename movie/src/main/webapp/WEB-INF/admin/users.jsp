@@ -16,7 +16,6 @@
         <title>ADMIN</title>
     </head>
     <body>
-
         <%@include file="blocks/menu.jspf" %>
         <form method="POST" action="Admin?page=users&operation=search">
             <p>
