@@ -27,7 +27,7 @@ public class EntryPointServlet extends HttpServlet {
 
         switch (operation) {
             case "film": {
-                address = "view_film.jsp";
+                address = "ViewFilm";
                 break;
             }
             case "registration": {
