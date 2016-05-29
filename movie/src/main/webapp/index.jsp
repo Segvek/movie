@@ -14,7 +14,7 @@
         <%@include file="blocks/header.jspf" %>
         <div class="content">
             <div class="fblock">
-                <div class="bhead">Сегодня в кино</div>
+                <div class="bhead">Новинки</div>
                 <div class="f1">     
                     <a href="page?operation=film&id=1">
                         <div class="post1"></div>

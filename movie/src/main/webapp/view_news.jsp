@@ -14,6 +14,7 @@
         <%@include file="blocks/header.jspf" %>
         <div class="acont">
             <div class="ntitle"></div>
+            <div class="nimage"></div>
             <div class="ntext"></div>
         </div>
         <%@include file="blocks/footer.jspf" %>  

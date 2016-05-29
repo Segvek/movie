@@ -614,3 +614,11 @@ td{
     left: 61.5%;
     color: red;
 }
+.par{
+    margin: 5%;
+}
+.nimage{
+    background-size: cover;
+    width: 80%;
+    min-height: 100px;
+}

@@ -13,7 +13,7 @@
     <body>
         <%@include file="blocks/header.jspf" %>
         <div class="acont">
-            <div class="phead">Сегодня в кино</div>
+            <div class="phead">Новинки</div>
             <div class="pfilm">
                 <a href="view_film.php"><div class="ppost"></div></a>
                 <div class="ptext"><a href="view_film.php"><h2>Книга джунглей</h2></a>
