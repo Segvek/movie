@@ -62,9 +62,22 @@ public class Film extends Model {
     private String linkVideo;
 
     
-    @ManyToMany
-    @JoinTable(name = "janr_film", joinColumns = {@JoinColumn(name = "film_id")},
-            inverseJoinColumns = {@JoinColumn(name = "janr_id")})
+    @ManyToMany(fetch = FetchType.LAZY, 
+        cascade = {CascadeType.PERSIST, CascadeType.MERGE}) 
+    @JoinTable(name = "Film_Janr",
+            joinColumns = {
+                @JoinColumn(
+                        name = "film_id",
+                        referencedColumnName = "id"
+                )
+            },
+            inverseJoinColumns = {
+                @JoinColumn(
+                        name = "janr_id",
+                        referencedColumnName = "id"
+                )
+            }
+    )
     private Set<Janr> janrs = new HashSet<>();
 
     

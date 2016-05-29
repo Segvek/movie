@@ -20,9 +20,8 @@ public class Janr extends Model{
     private String name;
     
     
-    @ManyToMany(mappedBy = "janrs", fetch = FetchType.LAZY)
-    @JoinTable(name = "janr_film", joinColumns = {@JoinColumn(name = "janr_id")},
-            inverseJoinColumns = {@JoinColumn(name = "film_id")})
+    @ManyToMany(mappedBy = "janrs", fetch = FetchType.LAZY, 
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Film> films = new HashSet<>();
 
     public Janr() {
