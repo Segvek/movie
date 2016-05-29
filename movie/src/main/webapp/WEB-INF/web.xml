@@ -40,6 +40,10 @@
         <servlet-name>Affiche</servlet-name>
         <servlet-class>com.segvek.inmovie.Affiche</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewFilm</servlet-name>
+        <servlet-class>com.segvek.inmovie.ViewFilm</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DotInputServlet</servlet-name>
         <url-pattern>/</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>Affiche</servlet-name>
         <url-pattern>/Affiche</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewFilm</servlet-name>
+        <url-pattern>/ViewFilm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

@@ -1,10 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.segvek.inmovie;
 
+import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.db.HibernateUtil;
 import com.segvek.inmovie.entity.Film;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,20 +22,32 @@ import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-public class Affiche extends HttpServlet {
+/**
+ *
+ * @author Panas
+ */
+public class ViewFilm extends HttpServlet {
+
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("affiche.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view_film.jsp");
         
+        Long id=0L;
+           
+        Film film=null;
+        try {
+            id = Long.parseLong(request.getParameter("id"));
+            film = new DaoImpl<>(Film.class).getEntity(id);
+            if(film==null)
+                dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
+        } catch (Exception ex) {
+            Logger.getLogger(ViewFilm.class.getName()).log(Level.SEVERE, null, ex);
+            dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
+        }
         
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("FROM com.segvek.inmovie.entity.Film film ORDER BY film.id desc");
-        query.setMaxResults(10);
-        List<Film> films  = query.list();
-        
-        request.setAttribute("films", films);
+        request.setAttribute("film", film);
         dispatcher.forward(request, response);
     }
 
