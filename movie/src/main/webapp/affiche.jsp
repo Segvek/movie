@@ -16,7 +16,7 @@
             <% for(Film film:films) {%>
             <div class="pfilm">
                 <a href="page?operation=film&id=<%=film.getId()%>">
-                    <div class="ppost">
+                    <div>
                         <img class="ppost" src="<%=film.getPatchImage() %>"/>
                     </div>
                 </a>

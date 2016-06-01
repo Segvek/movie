@@ -2,4 +2,6 @@
 <%@ page pageEncoding="windows-1251" %>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 <link type="text/css" href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/kinopoisk.css" />
+<script src="http://yandex.st/jquery/1.9.1/jquery.min.js"></script>
 <title>INMovie</title>

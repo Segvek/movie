@@ -61,7 +61,7 @@
 
 
             <p><label for="budget">Введите бюджет:</label></p>
-            <p><input type="file" name="budget" class="input" value="<%=film.getBudget()%>" required></p>
+            <p><input type="text name="budget" class="input" value="<%=film.getBudget()%>" size="30" required></p>
             
             <p><label for="sbory">Введите сборы:</label></p>
             <p><input type="text" name="sbory" class="input" size="30" maxlength="50" value="<%=film.getSbory()%>" required></p>

@@ -11,15 +11,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%@include file="blocks/head.jspf" %>
+        <%@include file="blocks/head.jspf" %>      
+        <script type="text/javascript" src="js/kinopoisk.js"></script>
     </head>
     <body>
         <%@include file="blocks/header.jspf" %>
         <div class="acont">
             <div class="ftitle"><%=film.getName()%></div>
             <div class="film"> 
-                <div class="fpost">
-                    <img class="fpost" src="<%=film.getPatchImage() %>" />
+                <div class="kinopoisk" data-movie="771067"></div>
+                <div>
+                    <img class="fpost" src="<%=film.getPatchImage()%>" />
                 </div>
                 <%if (user != null) {%>
                 <a href="">
