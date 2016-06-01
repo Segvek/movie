@@ -49,33 +49,34 @@ public class EntryPointServlet extends HttpServlet {
                 break;
             }
             case "trailers":{
-                address = "trailers.jsp";
+                address = "Trailers";
                 break;
             }
             case "news":{
-                address = "news.jsp";
+                address = "ViewNews";
                 break;
             }
             case "autorization":{
                 address = "Autorization";
                 break;
             }
-            
+            case "viewOneNews":{
+                address = "ViewOneNews";
+                break;
+            }
+            case "search":{
+                address = "Search";
+                break;
+            }
             case "exit":{
                 request.getSession().setAttribute("user", null);
-                address = "index.jsp";
+                address = "Index";
                 break;
             }
                 
             default:
-                address = "index.jsp";
+                address = "Index";
         }
-
-//        try {
-//            new DaoImpl<>(Role.class).addEntity(new Role("Администратор"));
-//        } catch (SQLException ex) {
-//            Logger.getLogger(EntryPointServlet.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
     }

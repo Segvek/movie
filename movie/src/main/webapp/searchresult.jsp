@@ -1,10 +1,14 @@
 <%-- 
     Document   : searchresult
     Created on : 23.05.2016, 1:12:02
-    Author     : Владимир
+    Author     : Р’Р»Р°РґРёРјРёСЂ
 --%>
 
-<%@page contentType="text/html" pageEncoding="windows-1251"%>
+<%@page import="com.segvek.inmovie.entity.Janr"%>
+<%@page import="java.util.List"%>
+<%@page import="com.segvek.inmovie.entity.Film"%>
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<% List<Film> films = (List<Film>)request.getAttribute("films"); %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,17 +17,26 @@
     <body>
         <%@include file="blocks/header.jspf" %>
            <div class="acont">
-            <div class="phead">Результаты поиска</div>
+            <div class="phead">Р РµР·СѓР»СЊС‚Р°С‚С‹ РїРѕРёСЃРєР°</div>
+            <% for(Film film:films) {%>
             <div class="pfilm">
-                <a href="view_film.php"><div class="ppost"></div></a>
-                <div class="ptext"><a href="view_film.php"><h2>Книга джунглей</h2></a>
-                    <p>2016, США, 105 мин</p>
-                    <p>режисер: Джон Фавро</p>
-                    <p>фэнтези, драма, приключения</p>
+                <a href="page?operation=film&id=<%=film.getId()%>">
+                    <div class="ppost">
+                        <img class="ppost" src="<%=film.getPatchImage() %>"/>
+                    </div>
+                </a>
+                <div class="ptext"><a href="page?operation=film&id=<%=film.getId()%>"><h2><%=film.getName()%></h2></a>
+                    <p><%=film.getYear()+" "+film.getCounty()+" "+film.getTime()%></p>
+                    <p>СЂРµР¶РёСЃРµСЂ: <%=film.getRegeser()%></p>
+                    <p><%for(Janr janr:film.getJanrs()) {%>
+                        <%=janr.getName()+" "%>
+                        <%}%>
+                    </p>
                 </div>
-                <div class="prate">рейтинг</div>
-                <div class="pdate"><p>14</br>апреля</p></div>
+                <div class="prate">СЂРµР№С‚РёРЅРі</div>
+                <div class="pdate"><p><%=film.getPremera()%> </p></div>
             </div>
+            <%}%>
         </div>
         <%@include file="blocks/footer.jspf" %>  
     </body>

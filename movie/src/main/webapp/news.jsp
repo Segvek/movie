@@ -4,7 +4,10 @@
     Author     : Владимир
 --%>
 
+<%@page import="com.segvek.inmovie.entity.News"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="windows-1251"%>
+<% List<News> news = (List<News>) request.getAttribute("news");%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,10 +18,16 @@
         <div class="acont">
             <div class="phead">Новости</div>
             <div class="nlist">
-                <div class="nimg1"></div>
-                <div class="ntext1"><h2>Режиссер Антуан Фукуа говорит о «Великолепной семерке»</h2>
-                    <p>Сказать, что Антуан Фукуа снял ремейк классического вестерна нельзя, поскольку сам по себе фильм Джона Стёрджеса был ремейком «Семи самураев» Акиры Куросавы. Режиссер «Падения Олимпа» и «Великого уравнителя» поведал КиноПоиску, как решился на такую непростую работу.</p>
+                <% for (News oneNews : news) {%>
+                <a href="page?operation=viewOneNews&id=<%=oneNews.getId()%>">
+                    <div>
+                        <img class="nimg1" src="<%=oneNews.getPatchImage()%>" />
+                    </div>
+                    <div class="ntext1"><h2><%=oneNews.getTitle()%></h2>
+                </a> 
+                    <p><%=oneNews.getContent().substring(0, 250)+"..." %></p>
                 </div>
+                <%}%>
             </div>
         </div>
         <%@include file="blocks/footer.jspf" %>  

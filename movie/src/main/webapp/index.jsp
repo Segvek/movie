@@ -4,7 +4,12 @@
     Author     : Panas
 --%>
 
+<%@page import="com.segvek.inmovie.entity.News"%>
+<%@page import="java.util.List"%>
+<%@page import="com.segvek.inmovie.entity.Film"%>
 <%@page contentType="text/html" pageEncoding="windows-1251"%>
+<%List<Film> films = (List<Film>)request.getAttribute("films"); %>
+<%List<News> news = (List<News>)request.getAttribute("news"); %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,54 +20,46 @@
         <div class="content">
             <div class="fblock">
                 <div class="bhead">Новинки</div>
-                <div class="f1">     
-                    <a href="page?operation=film&id=1">
-                        <div class="post1"></div>
-                        <span class="btext">Бэтмен против</br> Супермена</span>
+                <%for(int i=0; i<films.size(); i++){ %>
+                <div class="f<%=(i+1)%>">     
+                    <a href="page?operation=film&id=<%=films.get(i).getId()%>">
+                        <div>
+                            <img class="post<%=(i+1)%>" src="<%=films.get(i).getPatchImage() %>"/>
+                        </div>
+                        <span class="btext"><%=films.get(i).getName()%></span>
                     </a>
-                    <div class="date">24.03.16</div>
-                </div>
-                <div class="f2">
-                    <a href="view_film.php"><div class="post2"></div></a>
-                    <a href="view_film.php"><span class="btext">Дедпул</span></a>
-                    <div class="date">24.03.16</div>
-                </div>
-                <div class="f3">
-                    <a href="view_film.php"> <div class="post3"></div></a>
-                    <a href="view_film.php">  <span class="btext">Первый мститель: Противостояние</span></a>
-                    <div class="date">24.03.16</div>
-                </div>   
+                    <div class="date"><%=films.get(i).getPremera()%></div>
+                </div> 
+                <%}%>
             </div>
         </div>
         <div class="cont2">
             <div class="mnews">
                 <div class="nhead">Новости</div>
-                <div class="nblock">
-                    <a href="view_news.php"><div class="nimg"></div></a>
-                    <div class="ntext">
-                        <a href="view_news.php"><h2>Билеты на премьеру шестого сезона «Игры престолов»</h2></a>
-                        <p>КиноПоиск и «Амедиатека» представляют конкурс, посвященный старту нового сезона одного из главных телевизионных проектов современности «Игра престолов». Правильно ответьте на вопросы и получите возможность выиграть билеты на премьерный показ первой серии в кинотеатрах сети «КАРО».</p>
-                    </div>
-                </div>
-                <div class="nblock">
-                    <a href="view_news.php"><div class="nimg"></div></a>
-                    <div class="ntext">
-                        <a href="view_news.php"><h2>Билеты на премьеру шестого сезона «Игры престолов»</h2></a>
-                        <p>КиноПоиск и «Амедиатека» представляют конкурс, посвященный старту нового сезона одного из главных телевизионных проектов современности «Игра престолов». Правильно ответьте на вопросы и получите возможность выиграть билеты на премьерный показ первой серии в кинотеатрах сети «КАРО».</p>
-                    </div>
-                </div>
-                
+                <%for(int i=0; i<2; i++){%>
+                    <div class="nblock">
+                        <a href="page?operation=viewOneNews&id=<%=news.get(i).getId() %>">
+                            <div>
+                                <img class="nimg" src="<%=news.get(i).getPatchImage()%>"/>
+                            </div>
+                        </a>
+                        <div class="ntext">
+                            <a href="page?operation=viewOneNews&id=<%=news.get(i).getId() %>">
+                                <h2><%=news.get(i).getTitle() %></h2>
+                            </a>
+                                <p><%=news.get(i).getContent().substring(0, 280) %></p>
+                        </div>
+                    </div>  
+                <%}%>
             </div>
             <div class="mtrail">
                 <div class="nhead">Новые трейлеры</div>
+                <%for(int i=0; i<2; i++) {%>
                 <div class="mblock">
-                    <a href="view_film.php"><div class="mtitle"><h2>Отряд самоубийц</h2></div></a>
-                    <div class="mvid"><iframe src="https://www.youtube.com/embed/7xLCggrIRHY" frameborder="0" allowfullscreen></iframe></div>
+                    <a href="page?operation=film&id=<%=films.get(i).getId()%>"><div class="mtitle"><h2><%=films.get(i).getName()%></h2></div></a>
+                    <div class="mvid"><iframe src="<%=films.get(i).getLinkVideo() %>" frameborder="0" allowfullscreen></iframe></div>
                 </div>
-                <div class="mblock">
-                    <a href="view_film.php"><div class="mtitle"><h2>Отряд самоубийц</h2></div></a>
-                    <div class="mvid"><iframe src="https://www.youtube.com/embed/7xLCggrIRHY" frameborder="0" allowfullscreen></iframe></div>
-                </div>
+                <%}%>
             </div>
         </div>
         <%@include file="blocks/footer.jspf" %>  

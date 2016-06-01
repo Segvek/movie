@@ -44,6 +44,26 @@
         <servlet-name>ViewFilm</servlet-name>
         <servlet-class>com.segvek.inmovie.ViewFilm</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewNews</servlet-name>
+        <servlet-class>com.segvek.inmovie.ViewNews</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewOneNews</servlet-name>
+        <servlet-class>com.segvek.inmovie.ViewOneNews</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Trailers</servlet-name>
+        <servlet-class>com.segvek.inmovie.Trailers</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>com.segvek.inmovie.Index</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>com.segvek.inmovie.Search</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DotInputServlet</servlet-name>
         <url-pattern>/</url-pattern>
@@ -111,6 +131,26 @@
     <servlet-mapping>
         <servlet-name>ViewFilm</servlet-name>
         <url-pattern>/ViewFilm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewNews</servlet-name>
+        <url-pattern>/ViewNews</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewOneNews</servlet-name>
+        <url-pattern>/ViewOneNews</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Trailers</servlet-name>
+        <url-pattern>/Trailers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/Index</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/Search</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

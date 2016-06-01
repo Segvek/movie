@@ -4,7 +4,10 @@
     Author     : Владимир
 --%>
 
+<%@page import="com.segvek.inmovie.entity.News"%>
 <%@page contentType="text/html" pageEncoding="windows-1251"%>
+<%News news = (News) request.getAttribute("news");
+   %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,9 +16,11 @@
     <body>
         <%@include file="blocks/header.jspf" %>
         <div class="acont">
-            <div class="ntitle"></div>
-            <div class="nimage"></div>
-            <div class="ntext"></div>
+            <div class="ntitle"><%=news.getTitle()%></div>
+            <div>
+                <img class="nimage" src="<%=news.getPatchImage()%>"/>
+            </div>
+            <div class="ntext"><%=news.getContent()%></div>
         </div>
         <%@include file="blocks/footer.jspf" %>  
     </body>
