@@ -18,17 +18,18 @@ public class Search extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=windows-1251");
+        request.setCharacterEncoding("windows-1251");
         RequestDispatcher dispatcher = request.getRequestDispatcher("searchresult.jsp");
         String searcs = request.getParameter("search");
         System.out.println(searcs);
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("FROM com.segvek.inmovie.entity.Film film WHERE name LIKE '%"+searcs+"%' ORDER BY film.id desc");
+        Query query = session.createQuery("FROM com.segvek.inmovie.entity.Film film WHERE name LIKE '%" + searcs + "%' ORDER BY film.id desc");
         query.setMaxResults(10);
-        List<Film> films  = query.list();
-        
+        List<Film> films = query.list();
+
         request.setAttribute("films", films);
         dispatcher.forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

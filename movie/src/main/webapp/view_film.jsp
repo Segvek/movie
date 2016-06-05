@@ -25,7 +25,10 @@
                 </div>
                 <%if (user != null) {%>
                 <a href="">
-                    <div class="addto">Добавить в Watchlist</div>
+                    <form method="post">
+                        <input type="submit" class="addto" value="Добавить в Watchlist">
+                        <input type="submit" class="delout" value="Убрать из Watchlist">
+                    </form>
                 </a>
                 <%}%>
                 <div class="finfo">
@@ -89,7 +92,40 @@
             <div class="textline">Трейлер</div>
             <div class="ftrail"><iframe src="<%=film.getLinkVideo()%>" frameborder="0" allowfullscreen></iframe></div>
             <div class="textline">Комментарии к фильму</div>
-            <div class="fcomment"></div>
+            <div class="fcomment">
+                <div class="commenttext">
+                    <p>login</p>
+                    <p>texttexttexttexttexttexttexttextvtexttexttexttexttexttext</p>           
+                </div>
+                <div class="commenttext">
+                    <p>login</p>
+                    <p>texttexttexttexttexttexttexttextvtexttexttexttexttexttext
+                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext
+                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext
+                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext
+                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext
+                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext
+                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext</p>           
+                </div>
+                <div class="commenttext">
+                    <p>login</p>
+                    <p>texttexttexttexttexttexttexttextvtexttexttexttexttexttext</p>           
+                </div>
+                <form class="comment" method="post">
+                    <p>
+                        <label>Имя:</label>
+                        <input type="text" name="name" />
+                    </p>
+                    <p>
+                        <label>Комментарий:</label>
+                        <br />
+                        <textarea name="text_comment" cols="100" rows="7"></textarea>
+                    </p>
+                    <p>
+                        <input type="submit" value="Отправить" />
+                    </p>
+                </form>
+            </div>
         </div>
         <%@include file="blocks/footer.jspf" %>
     </body>

@@ -8,6 +8,7 @@
 <html>
     <head>
         <%@include file="blocks/head.jspf" %>
+        <script type="text/javascript" src="js/kinopoisk.js"></script>
     </head>
     <body>
         <%@include file="blocks/header.jspf" %>

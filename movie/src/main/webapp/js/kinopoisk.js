@@ -1,4 +1,4 @@
-п»ї/**
+/**
   * jQuery Kinopoisk Plugin 0.4
   *
   * Kinopoisk is a jQuery plugin that let you easily add to your web page movie rating informer. This informer shows
@@ -15,7 +15,7 @@
 ;(function( $ ) {
 
     /**
-     * РЈСЃС‚Р°РЅРѕРІРєРё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+     * Установки по умолчанию
      *
      * @type {Object}
      */
@@ -26,38 +26,36 @@
         "fix"    : 1,
         "order"  : ["kinopoisk", "imdb"],
         "kinopoisk_template": '<div>' +
-                '<span class="kp_description">Р РµР№С‚РёРЅРі <a href="http://kinopoisk.ru" target="new">РљРёРЅРѕРїРѕРёСЃРєР°</a>:</span>' +
-                '<span class="kp_rating" title="РџСЂРѕРіРѕР»РѕСЃРѕРІР°Р»Рѕ $vote">$rating</span>' +
-                '<span class="kp_stars">$stars</span></div>',
+                '<span class="kp_description">Рейтинг <a href="http://kinopoisk.ru" target="new">Кинопоиска</a>:</span>' +
+                '<span class="kp_rating" title="Проголосовало $vote">$rating</span>',
         "imdb_template": '<div>' +
-                '<span class="kp_description">Р РµР№С‚РёРЅРі <a href="http://imdb.com" target="new">IMDB</a>:</span>' +
-                '<span class="kp_rating" title="РџСЂРѕРіРѕР»РѕСЃРѕРІР°Р»Рѕ $vote">$rating</span>' +
-                '<span class="kp_stars">$stars</span></div>',
+                '<span class="kp_description">Рейтинг <a href="http://imdb.com" target="new">IMDB</a>:</span>' +
+                '<span class="kp_rating" title="Проголосовало $vote">$rating</span>',
         "cache_time" : 86400000,
-        "no_data": "РќРµС‚ РґР°РЅРЅС‹С…",
+        "no_data": "Нет данных",
         "show_zero_rating": true
     };
 
     /**
-     * РњРµС‚РѕРґС‹ РїР»Р°РіРёРЅР°
+     * Методы плагина
      *
      * @type {Object}
      */
     var methods = {
 
         /**
-         * РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїР»Р°РіРёРЅР°
+         * пнициализация плагина
          *
-         * @param options {String[]} РњР°СЃСЃРёРІ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё РїР»Р°РіРёРЅР°
+         * @param options {String[]} Массив с параметрами плагина
          *
          * @return {*}
          */
         init : function(options) {
             return this.each(function() {
                 var $this = $(this);
-                // РђС‚СЂРёР±СѓС‚С‹ data РїРµСЂРµРєСЂС‹РІР°СЋС‚ settings, Р° options РїРµСЂРµРєСЂС‹РІР°РµС‚ data
+                // Атрибуты data перекрывают settings, а options перекрывает data
                 var params = $.extend({}, settings, $this.data(), options);
-                // Р•СЃР»Рё РІРјРµСЃС‚Рѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР° РїРµСЂРµРґР°Р»Рё СЃСЃС‹Р»РєСѓ
+                // Если вместо идентификатора передали ссылку
                 for (var i in params) {
                     if (i == 'movie') {
                         var movie = params[i].toString().split('/');
@@ -68,12 +66,12 @@
                         }
                     }
                 }
-                $this.data({'params': params}); // Р—Р°РїРёСЃС‹РІР°РµРј РїР°СЂР°РјРµС‚СЂС‹ СЌР»РµРјРµРЅС‚Р°
+                $this.data({'params': params}); // Записываем параметры элемента
                 $this.kinopoisk('getRating');
             });
         },
         /**
-         * РџРѕР»СѓС‡РµРЅРёРµ СЂРµР№С‚РёРЅРіР° СЃ СЃР°Р№С‚Р° kinopoisk.ru
+         * Получение рейтинга с сайта kinopoisk.ru
          *
          * @return {*}
          */
@@ -81,9 +79,9 @@
             var el = $(this);
             var params = el.data('params');
             if (!params.movie) {
-                throw 'РќРµ СѓРєР°Р·Р°РЅ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С„РёР»СЊРјР° РЅР° РєРёРЅРѕРїРѕРёСЃРєРµ (data-movie).';
+                throw 'Не указан идентификатор фильма на кинопоиске (data-movie).';
             }
-            // РџСЂРѕРІРµСЂСЏРµРј РєРµС€
+            // Проверяем кеш
             var movie_xml = methods._getCache(el, params.movie);
             if (movie_xml) {
                 return methods._showRating(el, movie_xml);
@@ -96,7 +94,7 @@
                                 + '.xml"') + '&format=xml&callback=?',
                         dataType: 'json',
                         success: function(data) {
-                            movie_xml = methods._setCache(el, params.movie, data.results[0]); // РљРµС€РёСЂСѓРµРј РґР°РЅРЅС‹Рµ
+                            movie_xml = methods._setCache(el, params.movie, data.results[0]); // Кешируем данные
                             return methods._showRating(el, movie_xml);
                         },
                         error: function(data) {
@@ -108,10 +106,10 @@
             }
         },
         /**
-         * РџРѕР»СѓС‡РµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ РёР· РєРµС€Р°.
+         * Получение значения из кеша.
          *
-         * @param el    {Object}  jQuery РѕР±СЉРµРєС‚ С‚РµРєСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р°
-         * @param movie {Integer} РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С„РёР»СЊРјР°
+         * @param el    {Object}  jQuery объект текущего элемента
+         * @param movie {Integer} пдентификатор фильма
          *
          * @return {*}
          * @private
@@ -126,7 +124,7 @@
                 var xml_doc      = $.parseXML(cache);
                 var $xml         = $(xml_doc);
                 if ((timestamp - $xml.find("cache_time").text()) > params.cache_time) {
-                    // Р•СЃР»Рё РєРµС€ РёСЃС‚С‘Рє, С‡РёСЃС‚РёРј РµРіРѕ
+                    // Если кеш истёк, чистим его
                     localStorage.removeItem("movie_" + movie);
                     return false;
                 }
@@ -134,11 +132,11 @@
             return cache;
         },
         /**
-         * РЈСЃС‚Р°РЅРѕРІРєР° РєРµС€Р°
+         * Установка кеша
          *
-         * @param el    {Object}  РћР±СЉРµРєС‚ jQuery
-         * @param movie {Integer} РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С„РёР»СЊРјР°
-         * @param data  {String}  XML СЃ РѕС‚РІРµС‚РѕРј СЃРµСЂРІРµСЂР° kinopoisk
+         * @param el    {Object}  Объект jQuery
+         * @param movie {Integer} пдентификатор фильма
+         * @param data  {String}  XML с ответом сервера kinopoisk
          *
          * @return {String}
          * @private
@@ -154,7 +152,7 @@
                 var xml_doc      = $.parseXML(cache);
                 var $xml         = $(xml_doc);
                 if ((timestamp - $xml.find("cache_time").text()) > params.cache_time) {
-                    // Р•СЃР»Рё СЂР°Р·РЅРёС†Р° РІРѕ РІСЂРµРјРµРЅРё Р±РѕР»РµРµ СЃСѓС‚РѕРє, С‚Рѕ РѕР±РЅРѕРІР»СЏРµРј РєРµС€
+                    // Если разница во времени более суток, то обновляем кеш
                     localStorage.setItem("movie_" + movie, movie_xml);
                 } else {
                     movie_xml = cache;
@@ -163,23 +161,23 @@
             return movie_xml;
         },
         /**
-         * РџРѕРєР°Р· СЂРµР№С‚РёРЅРіР°
+         * Показ рейтинга
          *
-         * @param el {Object}   jQuery РѕР±СЉРµРєС‚
-         * @param data {String} XML СЃ РѕС‚РІРµС‚РѕРј СЃРµСЂРІРµСЂР° kinopoisk
+         * @param el {Object}   jQuery объект
+         * @param data {String} XML с ответом сервера kinopoisk
          *
          * @private
          */
         _showRating: function(el, data) {
             var params = el.data('params');
             if (!data) {
-                throw 'РџСЂРѕРІРµСЂСЊС‚Рµ РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ url "' + params.url + '"';
+                throw 'Проверьте правильность url "' + params.url + '"';
             }
             var xml_doc      = $.parseXML(data);
             var $xml         = $(xml_doc);
             var $kp_rating   = $xml.find("kp_rating");
             var $imdb_rating = $xml.find("imdb_rating");
-            // Р•СЃР»Рё Р±С‹Р» СѓРєР°Р·Р°РЅ Р»РµРІС‹Р№ movie_id
+            // Если был указан левый movie_id
             if ($kp_rating.text() == 0 && $kp_rating.attr("num_vote") == 0) {
                 if (!params.no_data) {
                     return el;
@@ -188,10 +186,10 @@
                 }
 
             }
-            // РћРєСЂСѓРіР»РµРЅРёРµ СЂРµР№С‚РёРЅРіР°
+            // Округление рейтинга
             $kp_rating.text(methods.__roundRating($kp_rating, params.fix));
             $imdb_rating.text(methods.__roundRating($imdb_rating, params.fix));
-            // РџРѕР»СѓС‡РµРЅРёРµ Р·РІС‘Р·Рґ
+            // Получение звёзд
             $kp_rating.stars   = methods._getStar($kp_rating.text(), params.range);
             $imdb_rating.stars = methods._getStar($imdb_rating.text(), params.range);
             var kp_tpl = methods._getTemplate(params.kinopoisk_template, $kp_rating);
@@ -217,20 +215,20 @@
             return el.hide().html('<span class="kp_container">' + text + '</span>').fadeIn();
         },
         /**
-         * РћРєСЂСѓРіР»РµРЅРёРµ СЂРµР№С‚РёРЅРіР°
+         * Округление рейтинга
          *
-         * @param rating {Object} РћР±СЉРµРєС‚ СЂРµР№С‚РёРЅРіР°
-         * @param fix    {int}    РљРѕР»РёС‡РµСЃС‚РІРѕ Р·РЅР°РєРѕРІ РїРѕСЃР»Рµ Р·Р°РїСЏС‚РѕР№
+         * @param rating {Object} Объект рейтинга
+         * @param fix    {int}    Количество знаков после запятой
          * @private
          */
         __roundRating: function(rating, fix) {
             return Math.round(parseFloat(rating.text()) * Math.pow(10, fix)) / Math.pow(10, fix);
         },
         /**
-         * РЁР°Р±Р»РѕРЅ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
+         * Шаблон отображения
          *
-         * @param template  {String} РЁР°Р±Р»РѕРЅ
-         * @param $rating   {Object} РћР±СЉРµРєС‚ СЂРµР№С‚РёРЅРіР°
+         * @param template  {String} Шаблон
+         * @param $rating   {Object} Объект рейтинга
          *
          * @return {String}
          * @private
@@ -242,10 +240,10 @@
                 .replace("$stars", $rating.stars);
         },
         /**
-         * РћС‚РѕР±СЂР°Р¶РµРЅРёРµ Р·РІС‘Р·Рґ
+         * Отображение звёзд
          *
-         * @param rating {FLoat}   Р РµР№С‚РёРЅРі
-         * @param range  {Integer} Р”РёР°РїР°Р·РѕРЅ Р·РІС‘Р·РґРЅРѕСЃС‚Рё
+         * @param rating {FLoat}   Рейтинг
+         * @param range  {Integer} Диапазон звёздности
          *
          * @return {String}
          * @private
@@ -268,13 +266,13 @@
         try {
             if (methods[method]) {
                 if (method.charAt(0) == "_") {
-                    throw "РќРµР»СЊР·СЏ РІС‹Р·С‹РІР°С‚СЊ РїСЂРёРІР°С‚РЅС‹Р№ РјРµС‚РѕРґ";
+                    throw "Нельзя вызывать приватный метод";
                 }
                 return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
             } else if (typeof method === 'object' || ! method) {
                 return methods.init.apply(this, arguments);
             } else {
-                throw 'РњРµС‚РѕРґ ' +  method + ' РЅРµ РЅР°Р№РґРµРЅ';
+                throw 'Метод ' +  method + ' не найден';
             }
         } catch(e) {
             $.error(e);

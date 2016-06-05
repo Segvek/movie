@@ -20,7 +20,7 @@
             <div>
                 <img class="nimage" src="<%=news.getPatchImage()%>"/>
             </div>
-            <div class="ntext"><%=news.getContent()%></div>
+            <div class="ntext2"><%=news.getContent()%></div>
         </div>
         <%@include file="blocks/footer.jspf" %>  
     </body>
