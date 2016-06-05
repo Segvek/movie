@@ -6,6 +6,7 @@
 package com.segvek.inmovie.operation;
 
 import com.segvek.inmovie.dao.Dao;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.db.HibernateUtil;
 import com.segvek.inmovie.entity.Film;
@@ -31,7 +32,7 @@ public class EditNews {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    private Dao dao = new DaoImpl(News.class);
+    private Dao dao = DaoFactory.getFactory().getDaoNews();
 
     public boolean edit(Long idnews) {
 
@@ -40,7 +41,7 @@ public class EditNews {
         String patchImage = request.getParameter("patchImage");
 
         //загрузка фильма
-        DaoImpl daoNews = new DaoImpl(News.class);
+        DaoImpl daoNews = DaoFactory.getFactory().getDaoNews();
         News news = null;
         try {
             news = (News) daoNews.getEntity(idnews);

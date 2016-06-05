@@ -2,6 +2,7 @@ package com.segvek.inmovie.admin;
 
 import com.segvek.inmovie.Static;
 import com.segvek.inmovie.dao.Dao;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.Film;
 import com.segvek.inmovie.operation.EditFilms;
@@ -48,7 +49,7 @@ public class ListFilms extends HttpServlet {
             case "dell":
                 String delId = request.getParameter("id");
                 Long id = Long.parseLong(delId);
-                Dao dao = new DaoImpl<>(Film.class);
+                Dao dao = DaoFactory.getFactory().getDaoFilm();
                 try {
                     Film film = (Film) dao.getEntity(id);
                     dao.deleteEntity(film);
@@ -94,7 +95,7 @@ public class ListFilms extends HttpServlet {
     public List<Film> getAllFilms() {
         List<Film> films = null;
         try {
-            DaoImpl<Film> dao = new DaoImpl<>(Film.class);
+            DaoImpl<Film> dao = DaoFactory.getFactory().getDaoFilm();
             films = dao.getListEntity();
             dao.closeSession();
         } catch (SQLException ex) {

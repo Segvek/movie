@@ -25,7 +25,7 @@
                 </div>
                 <%if (user != null) {%>
                 <a href="">
-                    <form method="post">
+                    <form method="post" action="page?operation=addToWatchList&idFilm=<%=film.getId()%>">
                         <input type="submit" class="addto" value="Добавить в Watchlist">
                         <input type="submit" class="delout" value="Убрать из Watchlist">
                     </form>

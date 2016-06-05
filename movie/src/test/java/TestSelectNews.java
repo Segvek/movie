@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.db.HibernateUtil;
 import com.segvek.inmovie.entity.News;
@@ -21,14 +22,14 @@ public class TestSelectNews {
 
     @Test
     public void selectOneNews() throws SQLException {
-        News news = new DaoImpl<>(News.class).getEntity(1L);
+        News news = (News) DaoFactory.getFactory().getDaoNews().getEntity(1L);
         System.out.println(news.getTitle());
         assertFalse(news == null);
     }
 
     @Test
     public void selectListNews() throws SQLException {
-        List<News> news = new DaoImpl<>(News.class).getListEntity();
+        List<News> news = DaoFactory.getFactory().getDaoNews().getListEntity();
         System.out.println(news.size());
         assertTrue(news.size() == 0);
     }

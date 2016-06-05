@@ -36,9 +36,22 @@ public class User extends Model {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private Set<Comment> comments = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(name = "watch_list", joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "film_id")})
+    @ManyToMany(fetch = FetchType.LAZY, 
+        cascade = {CascadeType.PERSIST}) 
+    @JoinTable(name = "watch_list",
+            joinColumns = {
+                @JoinColumn(
+                        name = "user_id",
+                        referencedColumnName = "id"
+                )
+            },
+            inverseJoinColumns = {
+                @JoinColumn(
+                        name = "film_id",
+                        referencedColumnName = "id"
+                )
+            }
+    )
     private Set<Film> films = new HashSet<>();
 
     public User() {

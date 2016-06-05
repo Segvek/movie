@@ -5,6 +5,7 @@
  */
 
 import com.segvek.inmovie.dao.Dao;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.db.HibernateUtil;
 import com.segvek.inmovie.entity.User;
@@ -31,7 +32,7 @@ public class TestSelectUser {
     
     @Test
     public void selectOneUser(){
-        Dao dao = new DaoImpl(User.class);
+        Dao dao = DaoFactory.getFactory().getDaoUser();
         
         User user=null;
         try {

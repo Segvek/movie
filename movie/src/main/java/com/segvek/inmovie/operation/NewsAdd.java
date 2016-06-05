@@ -5,6 +5,7 @@
  */
 package com.segvek.inmovie.operation;
 
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.Film;
 import com.segvek.inmovie.entity.Janr;
@@ -27,7 +28,7 @@ public class NewsAdd {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    private DaoImpl dao = new DaoImpl(News.class);
+    private DaoImpl dao = DaoFactory.getFactory().getDaoNews();
 
     public boolean add() {
 

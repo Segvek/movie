@@ -1,38 +1,52 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.segvek.inmovie;
 
-import com.segvek.inmovie.db.HibernateUtil;
 import com.segvek.inmovie.entity.Film;
-import com.segvek.inmovie.entity.News;
+import com.segvek.inmovie.entity.User;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.hibernate.Query;
-import org.hibernate.Session;
 
-public class Index extends HttpServlet {
+/**
+ *
+ * @author Panas
+ */
+
+public class WatchListLoad extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("watchlist.jsp");
         
+        if (!Static.isUser(request, response)) {
+            dispatcher = request.getRequestDispatcher("errorpage//accessError.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
         
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("FROM com.segvek.inmovie.entity.Film film ORDER BY film.id desc");
-        query.setMaxResults(3);
-        List<Film> films  = query.list();
-        
-        Query query2 = session.createQuery("FROM com.segvek.inmovie.entity.News n ORDER BY n.id desc");
-        query2.setMaxResults(2);
-        List<News> news  = query2.list();
-        
-        
-        request.setAttribute("news", news);
+      
+        Set<Film> films=null;
+        try {
+            
+            films = ((User)request.getSession().getAttribute("user")).getFilms();
+            if(films==null)
+                dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
+        } catch (Exception ex) {
+            Logger.getLogger(ViewFilm.class.getName()).log(Level.SEVERE, null, ex);
+            dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
+        }
         request.setAttribute("films", films);
         dispatcher.forward(request, response);
     }

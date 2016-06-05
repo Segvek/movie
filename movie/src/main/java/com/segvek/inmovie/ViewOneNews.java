@@ -5,6 +5,7 @@
  */
 package com.segvek.inmovie;
 
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.Film;
 import com.segvek.inmovie.entity.News;
@@ -43,7 +44,7 @@ public class ViewOneNews extends HttpServlet {
         News news=null;
         try {
             id = Long.parseLong(request.getParameter("id"));
-            news = new DaoImpl<>(News.class).getEntity(id);
+            news = (News) DaoFactory.getFactory().getDaoNews().getEntity(id);
             if(news==null)
                 dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
         } catch (Exception ex) {

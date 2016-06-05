@@ -7,6 +7,7 @@ package com.segvek.inmovie.admin;
 
 import com.segvek.inmovie.Static;
 import com.segvek.inmovie.dao.Dao;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.operation.EditNews;
 import com.segvek.inmovie.operation.NewsAdd;
@@ -61,7 +62,7 @@ public class ListNews extends HttpServlet {
             case "dell":
                 String delId = request.getParameter("id");
                 Long id = Long.parseLong(delId);
-                Dao dao = new DaoImpl<>(com.segvek.inmovie.entity.News.class);
+                Dao dao = DaoFactory.getFactory().getDaoNews();
                 try {
                     com.segvek.inmovie.entity.News onenews = (com.segvek.inmovie.entity.News) dao.getEntity(id);
                     dao.deleteEntity(onenews);
@@ -105,7 +106,7 @@ public class ListNews extends HttpServlet {
     private List<com.segvek.inmovie.entity.News> loadListNews() {
         List<com.segvek.inmovie.entity.News> news = null;
         try {
-            news = new DaoImpl<>(com.segvek.inmovie.entity.News.class).getListEntity();
+            news = DaoFactory.getFactory().getDaoNews().getListEntity();
         } catch (SQLException ex) {
             Logger.getLogger(ListNews.class.getName()).log(Level.SEVERE, null, ex);
         }

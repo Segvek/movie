@@ -29,4 +29,16 @@ public class Static {
         }
         return true;
     }
+
+    static boolean isUser(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession();
+        if(session==null){
+            return false;
+        }
+        User user = (User) session.getAttribute("user");
+        if (user != null &&(user.getRol() == 2 || user.getRol()==1) ) {
+            return true;
+        }
+        return false;
+    }
 }

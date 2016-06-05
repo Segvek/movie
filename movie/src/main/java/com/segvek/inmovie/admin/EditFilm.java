@@ -1,6 +1,7 @@
 package com.segvek.inmovie.admin;
 
 import com.segvek.inmovie.Static;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.Film;
 import com.segvek.inmovie.entity.Janr;
@@ -41,7 +42,7 @@ public class EditFilm extends HttpServlet {
         
         Long id = 0L;
         Film film=null;
-        DaoImpl<Film> dao = new DaoImpl<>(Film.class);
+        DaoImpl<Film> dao = DaoFactory.getFactory().getDaoFilm();
         try {
             id = Long.parseLong(idString);
             film = dao.getEntity(id);
@@ -62,7 +63,7 @@ public class EditFilm extends HttpServlet {
     public List<Janr> getAllJanrs(){
         List<Janr> ranrs=null;
         try {
-            ranrs = new DaoImpl<>(Janr.class).getListEntity();
+            ranrs = DaoFactory.getFactory().getDaoJanr().getListEntity();
         } catch (SQLException ex) {
             Logger.getLogger(EditFilm.class.getName()).log(Level.SEVERE, null, ex);
         }

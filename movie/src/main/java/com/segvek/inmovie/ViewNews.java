@@ -1,6 +1,7 @@
 package com.segvek.inmovie;
 
 import com.segvek.inmovie.admin.ListFilms;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.Film;
 import com.segvek.inmovie.entity.News;
@@ -29,7 +30,7 @@ public class ViewNews extends HttpServlet {
            
         List<News> news = null;
         try {
-            news = new DaoImpl<>(News.class).getListEntity();
+            news = DaoFactory.getFactory().getDaoNews().getListEntity();
             if(news==null)
                 dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
         } catch (Exception ex) {
@@ -44,7 +45,7 @@ public class ViewNews extends HttpServlet {
     public List<News> getAllNews() {
         List<News> news = null;
         try {
-            DaoImpl<News> dao = new DaoImpl<>(News.class);
+            DaoImpl<News> dao = DaoFactory.getFactory().getDaoNews();
             news = dao.getListEntity();
             dao.closeSession();
         } catch (SQLException ex) {

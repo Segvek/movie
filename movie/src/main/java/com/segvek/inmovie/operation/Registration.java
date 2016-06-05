@@ -1,6 +1,7 @@
 package com.segvek.inmovie.operation;
 
 import com.segvek.inmovie.dao.Dao;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.User;
 import java.sql.SQLException;
@@ -14,7 +15,7 @@ public class Registration {
     private HttpServletRequest request;
     private HttpServletResponse response;
     
-    private Dao dao = new DaoImpl(User.class);
+    private Dao dao = DaoFactory.getFactory().getDaoUser();
     public boolean registration() {
         String login = request.getParameter("login");
         String mail = request.getParameter("email");

@@ -18,13 +18,15 @@ public class EntryPointServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
         String operation = request.getParameter("operation");
         if (operation == null) {
             operation = "unknow";
         }
 
-        String address = null;
-
+        String address = "errorpage//ErrorNotFoundPage.jsp";
+        
         switch (operation) {
             case "film": {
                 address = "ViewFilm";
@@ -38,7 +40,7 @@ public class EntryPointServlet extends HttpServlet {
                 registrator.setRequest(request);
                 registrator.setResponse(response);
                 if (registrator.registration()) {
-                    address = "index.jsp";
+                    address = "LoadIndex";
                 } else {
                     address = "logreg.jsp";
                 }
@@ -70,12 +72,23 @@ public class EntryPointServlet extends HttpServlet {
             }
             case "exit":{
                 request.getSession().setAttribute("user", null);
-                address = "Index";
+                address = "LoadIndex";
+                break;
+            }  
+            case "watchList":{
+                address="WatchListLoad";
                 break;
             }
-                
+            case "deleteToWatchList":{
+                address="DeleteWatchList";
+                break;
+            }
+            case "addToWatchList":{
+                address="AddToWatchList";
+                break;
+            }
             default:
-                address = "Index";
+                address = "LoadIndex";
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);

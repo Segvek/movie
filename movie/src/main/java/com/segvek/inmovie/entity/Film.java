@@ -85,8 +85,12 @@ public class Film extends Model {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "film")
     private Set<Comment> coments = new HashSet<>();
 
-    @ManyToMany(mappedBy = "films", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    
+    @ManyToMany(mappedBy = "films", fetch = FetchType.LAZY, 
+            cascade = {CascadeType.PERSIST})
     private Set<User> users = new HashSet<>();
+    
+    
 
     public Film() {
     }

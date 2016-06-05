@@ -57,12 +57,28 @@
         <servlet-class>com.segvek.inmovie.Trailers</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Index</servlet-name>
-        <servlet-class>com.segvek.inmovie.Index</servlet-class>
+        <servlet-name>LoadIndex</servlet-name>
+        <servlet-class>com.segvek.inmovie.LoadIndex</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Search</servlet-name>
         <servlet-class>com.segvek.inmovie.Search</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PointInput</servlet-name>
+        <servlet-class>com.segvek.inmovie.PointInput</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WatchListLoad</servlet-name>
+        <servlet-class>com.segvek.inmovie.WatchListLoad</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteWatchList</servlet-name>
+        <servlet-class>com.segvek.inmovie.DeleteWatchList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddToWatchList</servlet-name>
+        <servlet-class>com.segvek.inmovie.AddToWatchList</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DotInputServlet</servlet-name>
@@ -145,12 +161,24 @@
         <url-pattern>/Trailers</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Index</servlet-name>
-        <url-pattern>/Index</url-pattern>
+        <servlet-name>LoadIndex</servlet-name>
+        <url-pattern>/LoadIndex</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Search</servlet-name>
         <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WatchListLoad</servlet-name>
+        <url-pattern>/WatchListLoad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteWatchList</servlet-name>
+        <url-pattern>/DeleteWatchList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToWatchList</servlet-name>
+        <url-pattern>/AddToWatchList</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

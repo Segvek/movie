@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.segvek.inmovie.admin;
+package com.segvek.inmovie;
 
-import com.segvek.inmovie.Static;
 import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
-import com.segvek.inmovie.entity.News;
+import com.segvek.inmovie.entity.Film;
+import com.segvek.inmovie.entity.User;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -22,33 +20,38 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Владимир
+ * @author Panas
  */
-public class EditNews extends HttpServlet {
+public class DeleteWatchList extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF//admin//edit_news.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("page?operation=watchList");
 
-        if (!Static.isAdmin(request, response)) {
+        if (!Static.isUser(request, response)) {
             dispatcher = request.getRequestDispatcher("errorpage//accessError.jsp");
             dispatcher.forward(request, response);
             return;
         }
 
-        DaoImpl daoNews = DaoFactory.getFactory().getDaoNews();
-        News news = null;
-        Long idnews = Long.parseLong(request.getParameter("id"));
         try {
-            news = (News) daoNews.getEntity(idnews);
+            Film film = null;
+            Long id = Long.parseLong(request.getParameter("idFilm"));
+            film = (Film) DaoFactory.getFactory().getDaoFilm().getEntity(id);
+            User  user = (User) request.getSession().getAttribute("user");
+            user.getFilms().remove(film);
+            DaoFactory.getFactory().getDaoUser().updateEntity(user);
+            if (film == null) {
+                dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
+            }
         } catch (Exception ex) {
-            Logger.getLogger(com.segvek.inmovie.operation.EditNews.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewFilm.class.getName()).log(Level.SEVERE, null, ex);
             dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
-            dispatcher.forward(request, response);
         }
-        request.setAttribute("news", news);
+
         dispatcher.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

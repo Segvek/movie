@@ -2,6 +2,7 @@ package com.segvek.inmovie.admin;
 
 import com.segvek.inmovie.Static;
 import com.segvek.inmovie.dao.Dao;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.db.HibernateUtil;
 import com.segvek.inmovie.entity.User;
@@ -43,7 +44,7 @@ public class ListUsers extends HttpServlet {
             case "del":
                 String delId = request.getParameter("id");
                 Long id = Long.parseLong(delId);
-                Dao dao = new DaoImpl<>(User.class);
+                Dao dao = DaoFactory.getFactory().getDaoUser();
                 try {
                     User user = (User) dao.getEntity(id);
                     dao.deleteEntity(user);
@@ -67,7 +68,7 @@ public class ListUsers extends HttpServlet {
     private List<User> getAllUsers() {
         List<User> users = null;
         try {
-            users = new DaoImpl<>(User.class).getListEntity();
+            users = DaoFactory.getFactory().getDaoUser().getListEntity();
         } catch (SQLException ex) {
             Logger.getLogger(ListUsers.class.getName()).log(Level.SEVERE, null, ex);
         }

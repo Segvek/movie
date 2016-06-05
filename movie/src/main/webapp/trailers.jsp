@@ -20,7 +20,7 @@
             <div class="phead">Последние трейлеры</div>
             <%for (int i = 0; i < films.size(); i += 3) {%>
             <div class="tlist">
-                <% for (int j = 0; j < 3; j++) {%>
+                <% for (int j = 0; j < 3 && i+j<films.size() ; j++) { %>
                     <div class="trail">
                         <a href="page?operation=film&id=<%=films.get(i+j).getId()%>">
                             <div class="tname">

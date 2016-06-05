@@ -1,6 +1,7 @@
 package com.segvek.inmovie.operation;
 
 import com.segvek.inmovie.dao.Dao;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.db.HibernateUtil;
 import com.segvek.inmovie.entity.Film;
@@ -25,7 +26,7 @@ public class EditFilms {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    private Dao dao = new DaoImpl(User.class);
+    private Dao dao = DaoFactory.getFactory().getDaoUser();
 
     public boolean edit(Long idfilm) {
 
@@ -48,7 +49,7 @@ public class EditFilms {
         String janrsString[] = request.getParameterValues("janr");
 
         //загрузка фильма
-        DaoImpl daoFilm = new DaoImpl(Film.class);
+        DaoImpl daoFilm = DaoFactory.getFactory().getDaoFilm();
         Film film = null;
         try {
             film = (Film) daoFilm.getEntity(idfilm);
@@ -66,7 +67,7 @@ public class EditFilms {
         //Создание связей с жанрами
         Set<Janr> janrs = new HashSet<>();
         try {
-            DaoImpl<Janr> daoJanr = new DaoImpl<>(Janr.class);
+            DaoImpl<Janr> daoJanr = DaoFactory.getFactory().getDaoJanr();
             for (int i = 0; i < janrsString.length; i++) {
                 Long id = Long.parseLong(janrsString[i]);
                 Janr janr = daoJanr.getEntity(id);

@@ -1,6 +1,7 @@
 package com.segvek.inmovie.operation;
 
 import com.segvek.inmovie.dao.Dao;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.Film;
 import com.segvek.inmovie.entity.Janr;
@@ -22,7 +23,7 @@ public class FilmAdd {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    private DaoImpl dao = new DaoImpl(User.class);
+    private DaoImpl dao = DaoFactory.getFactory().getDaoUser();
 
     public boolean add() {
 
@@ -48,7 +49,7 @@ public class FilmAdd {
         Set<Janr> janrs =new HashSet<>();
         Film film= new Film();
         try{
-            DaoImpl<Janr> daoJanr = new DaoImpl<>(Janr.class);
+            DaoImpl<Janr> daoJanr = DaoFactory.getFactory().getDaoJanr();
             for (int i = 0; i < janrsString.length; i++) {
                 Long id = Long.parseLong(janrsString[i]);
                 Janr janr = daoJanr.getEntity(id);

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.Film;
 import com.segvek.inmovie.entity.Janr;
@@ -28,7 +29,7 @@ public class TestCreateJoinFilmToJanr {
         Set<Janr> janrs =new HashSet<>();
         Film film= new Film();
         try{
-            DaoImpl<Janr> daoJanr = new DaoImpl<>(Janr.class);
+            DaoImpl<Janr> daoJanr = DaoFactory.getFactory().getDaoJanr();
             for(Janr janr:daoJanr.getListEntity()){
                 janrs.add(janr);
                 janr.getFilms().add(film);
@@ -42,7 +43,7 @@ public class TestCreateJoinFilmToJanr {
         film.setJanrs(janrs);
         
         try {
-            new DaoImpl<>(Film.class).addEntity(film);
+            DaoFactory.getFactory().getDaoFilm().addEntity(film);
         } catch (Exception ex) {
             Logger.getLogger(TestCreateJoinFilmToJanr.class.getName()).log(Level.SEVERE, null, ex);
             assertTrue(false);

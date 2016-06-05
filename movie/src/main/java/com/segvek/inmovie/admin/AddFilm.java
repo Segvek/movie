@@ -1,6 +1,7 @@
 package com.segvek.inmovie.admin;
 
 import com.segvek.inmovie.Static;
+import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.Janr;
 import java.io.IOException;
@@ -39,7 +40,7 @@ public class AddFilm extends HttpServlet {
     public List<Janr> getAllJanrs(){
         List<Janr> ranrs=null;
         try {
-            ranrs = new DaoImpl<>(Janr.class).getListEntity();
+            ranrs = DaoFactory.getFactory().getDaoJanr().getListEntity();
         } catch (SQLException ex) {
             Logger.getLogger(EditFilm.class.getName()).log(Level.SEVERE, null, ex);
         }

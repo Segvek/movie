@@ -3,7 +3,7 @@
 <% User user = (User) request.getSession().getAttribute("user"); %>
 <div class="header">
     <div class="headmain">
-        <span class="main"><a href="index.php">INMovie</a></span>
+        <span class="main"><a href="page">INMovie</a></span>
         <div class="menu">
             <ul>
                 <li><a href="EntryPointServlet?operation=affiche">Афиша</a></li>
@@ -21,7 +21,9 @@
             <a href="page?operation=registration"><input type="button" class="login" value="Вход"></a>
         <%} else {%>
             <span class="logfield"><%=user.getLogin()%>&nbsp;&nbsp;&nbsp;<a href="EntryPointServlet?operation=exit">|&nbsp;&nbsp;&nbsp;Выход</a></span>
-            <button type="submit" class="watchlist">watchlist</button>
+            <form method="POST" action="page?operation=watchList" accept-charset="windows-1251">
+                <button type="submit" class="watchlist">watchlist</button>
+            </form>
         <%}%>
     </div>
 </div>
