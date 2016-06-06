@@ -82,7 +82,7 @@ ul{
 }
 .headbut{
     margin-right: 3%;
-    
+
 }
 .login{
     float: right;
@@ -375,7 +375,7 @@ ul{
     width: 17%;
     margin-right: 2%;
     height: 200px;
-    background-size: contain;	
+    background-size: contain;
 }
 .ptext{
     float:left;
@@ -389,7 +389,7 @@ ul{
 }
 .pdate{	
     width: 17%;
-    float:left;
+    float:right;
     font-size: 30px;
     margin-top: 5%;
     font-family: 'Rotonda Bold';
@@ -533,7 +533,7 @@ td{
     color: #000;
 }
 .delbutton{
-    width: 15%;
+    width: 21%;
     margin-left: 21%;
     margin-top: 6%;
     background-color: #2F4F4F;
@@ -683,4 +683,87 @@ td{
 .kp_container .kp_rating {
     display: inline-block;
     width: 30px;
+}
+.ntext1 a{
+    color: #000;
+}
+.pace.pace-inactive {
+    display: none;
+}
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.pace .pace-activity {
+    display: block;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: #000000;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    -webkit-transform: translateX(100%) translateY(-100%) rotate(45deg);
+    transform: translateX(100%) translateY(-100%) rotate(45deg);
+    pointer-events: none;
+}
+
+.pace.pace-active .pace-activity {
+    -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
+    transform: translateX(50%) translateY(-50%) rotate(45deg);
+}
+
+.pace .pace-activity::before,
+.pace .pace-activity::after {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    display: block;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    content: '';
+}
+
+.pace .pace-activity::before {
+    margin-left: -40px;
+    width: 80px;
+    height: 80px;
+    border-right-color: rgba(0, 0, 0, .2);
+    border-left-color: rgba(0, 0, 0, .2);
+    -webkit-animation: pace-theme-corner-indicator-spin 3s linear infinite;
+    animation: pace-theme-corner-indicator-spin 3s linear infinite;
+}
+
+.pace .pace-activity::after {
+    bottom: 50px;
+    margin-left: -20px;
+    width: 40px;
+    height: 40px;
+    border-top-color: rgba(0, 0, 0, .2);
+    border-bottom-color: rgba(0, 0, 0, .2);
+    -webkit-animation: pace-theme-corner-indicator-spin 1s linear infinite;
+    animation: pace-theme-corner-indicator-spin 1s linear infinite;
+}
+
+@-webkit-keyframes pace-theme-corner-indicator-spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(359deg); }
+}
+@keyframes pace-theme-corner-indicator-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(359deg); }
+}
+.pposts{
+    float:left;
+    min-height: 200px;
+    width: 90%;
 }

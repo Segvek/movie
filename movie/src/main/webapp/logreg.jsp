@@ -10,6 +10,7 @@
     <head>
         <%@include file="blocks/head.jspf" %>
         <script type="text/javascript" src="js/checkPass.js"></script>
+        
     </head>
     <body>
         <%@include file="blocks/header.jspf" %>
