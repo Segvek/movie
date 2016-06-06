@@ -109,7 +109,7 @@
                 <%}
                     if (Static.isUser(request, response)) {
                 %>
-                    <form class="comment" method="post" action="page?operation=comment&idFilm=<%=film.getId()%>">
+                <form class="comment" method="post" action="page?operation=comment&idFilm=<%=film.getId()%>">
                         <p>
                             <label>Комментарий:</label>
                             <br />

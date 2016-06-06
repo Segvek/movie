@@ -69,6 +69,8 @@
             <p><label for="patchImage">Выберите файл постера:</label></p>
             <p><input type="test" name="patchImage" class="input" size="40" required></p>
 
+            <p><label for="kinopoisk">Введите id кинопоиска:</label></p>
+            <p><input type="text" name="kinopoisk" class="input" size="10" maxlength="10" required></p>
 
             <p><button name="add_film" type="submit">Добавить</button>
                 <button name="reset" type="reset">Сбросить</button>
