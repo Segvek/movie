@@ -61,7 +61,7 @@ public class EditFilms {
 
         //очистка старых связей с жанрами 
         Session session = HibernateUtil.getSessionFactory().openSession();
-        String sql = "delete from janr_film where film_id= "+film.getId();
+        String sql = "delete from Film_Janr where film_id= "+film.getId();
         Query query = session.createSQLQuery(sql);
         query.executeUpdate();
         session.close();
