@@ -4,4 +4,5 @@
 <link type="text/css" href="css/style.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../css/kinopoisk.css" />
 <script src="http://yandex.st/jquery/1.9.1/jquery.min.js"></script>
+<script data-pace-options='{ "ajax": false }' src='js/pace.min.js'></script>
 <title>INMovie</title>
