@@ -97,7 +97,6 @@ public class ListFilms extends HttpServlet {
         try {
             DaoImpl<Film> dao = DaoFactory.getFactory().getDaoFilm();
             films = dao.getListEntity();
-            dao.closeSession();
         } catch (SQLException ex) {
             Logger.getLogger(ListFilms.class.getName()).log(Level.SEVERE, null, ex);
         }

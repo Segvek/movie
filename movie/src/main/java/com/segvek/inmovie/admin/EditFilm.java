@@ -57,7 +57,6 @@ public class EditFilm extends HttpServlet {
         request.setAttribute("janrs",janrs);
         request.setAttribute("film", film);
         dispatcher.forward(request, response);
-        dao.closeSession();
     }
 
     public List<Janr> getAllJanrs(){

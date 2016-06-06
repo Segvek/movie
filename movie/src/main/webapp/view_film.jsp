@@ -4,10 +4,14 @@
     Author     : Panas
 --%>
 
+<%@page import="com.segvek.inmovie.Static"%>
+<%@page import="com.segvek.inmovie.entity.Comment"%>
+<%@page import="java.util.Set"%>
 <%@page import="com.segvek.inmovie.entity.Janr"%>
 <%@page import="com.segvek.inmovie.entity.Film"%>
 <%@page contentType="text/html" pageEncoding="windows-1251"%>
 <% Film film = (Film) request.getAttribute("film");%>
+<% Set<Comment> comments = (Set<Comment>) request.getAttribute("coment");%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -93,38 +97,31 @@
             <div class="ftrail"><iframe src="<%=film.getLinkVideo()%>" frameborder="0" allowfullscreen></iframe></div>
             <div class="textline">Комментарии к фильму</div>
             <div class="fcomment">
+                <%if (comments != null) {
+                        for (Comment coment : comments) {%>
                 <div class="commenttext">
-                    <p>login</p>
-                    <p>texttexttexttexttexttexttexttextvtexttexttexttexttexttext</p>           
+                    <p><%=coment.getUser().getLogin()%></p>
+                    <p><%=coment.getComment()%></p>           
                 </div>
-                <div class="commenttext">
-                    <p>login</p>
-                    <p>texttexttexttexttexttexttexttextvtexttexttexttexttexttext
-                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext
-                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext
-                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext
-                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext
-                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext
-                        texttexttexttexttexttexttexttextvtexttexttexttexttexttext</p>           
-                </div>
-                <div class="commenttext">
-                    <p>login</p>
-                    <p>texttexttexttexttexttexttexttextvtexttexttexttexttexttext</p>           
-                </div>
-                <form class="comment" method="post">
-                    <p>
-                        <label>Имя:</label>
-                        <input type="text" name="name" />
-                    </p>
-                    <p>
-                        <label>Комментарий:</label>
-                        <br />
-                        <textarea name="text_comment" cols="100" rows="7"></textarea>
-                    </p>
-                    <p>
-                        <input type="submit" value="Отправить" />
-                    </p>
-                </form>
+                <%}
+                    } else {%>
+                <div class="commenttext">Коментарии отсутствуют. Будьте первыми!</div>
+                <%}
+                    if (Static.isUser(request, response)) {
+                %>
+                    <form class="comment" method="post" action="page?operation=comment&idFilm=<%=film.getId()%>">
+                        <p>
+                            <label>Комментарий:</label>
+                            <br />
+                            <textarea name="text_comment" cols="100" rows="7"></textarea>
+                        </p>
+                        <p>
+                            <input type="submit" value="Отправить" />
+                        </p>
+                    </form>
+                <%}else{%>
+                    <div>Для того что бі отсавить коментарий авторизируйтесь!</div>
+                <%}%>
             </div>
         </div>
         <%@include file="blocks/footer.jspf" %>

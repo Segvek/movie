@@ -34,7 +34,6 @@ public class TestCreateJoinFilmToJanr {
                 janrs.add(janr);
                 janr.getFilms().add(film);
             }
-            daoJanr.closeSession();
         }catch(SQLException e){
             e.printStackTrace();
             assertTrue(false);

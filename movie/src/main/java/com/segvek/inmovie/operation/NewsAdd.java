@@ -44,7 +44,6 @@ public class NewsAdd {
 
         try {
             dao.addEntity(news);
-            dao.closeSession();
         } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
             return false;

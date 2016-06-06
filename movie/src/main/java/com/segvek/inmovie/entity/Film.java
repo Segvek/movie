@@ -235,5 +235,13 @@ public class Film extends Model {
         this.users = users;
     }
 
+    public Set<Comment> getComents() {
+        return coments;
+    }
+
+    public void setComents(Set<Comment> coments) {
+        this.coments = coments;
+    }
+
     
 }

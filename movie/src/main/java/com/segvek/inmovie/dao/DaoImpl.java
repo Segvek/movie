@@ -1,7 +1,6 @@
 package com.segvek.inmovie.dao;
 
 import com.segvek.inmovie.db.HibernateUtil;
-import com.segvek.inmovie.dao.Dao;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.Session;

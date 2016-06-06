@@ -56,7 +56,6 @@ public class FilmAdd {
                 janrs.add(janr);
                 janr.getFilms().add(film);
             }
-            daoJanr.closeSession();
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -84,7 +83,6 @@ public class FilmAdd {
         
         try {
             dao.addEntity(film);
-            dao.closeSession();
         } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
             return false;

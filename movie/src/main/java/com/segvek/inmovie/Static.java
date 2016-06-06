@@ -30,7 +30,7 @@ public class Static {
         return true;
     }
 
-    static boolean isUser(HttpServletRequest request, HttpServletResponse response) {
+    public static boolean isUser(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         if(session==null){
             return false;

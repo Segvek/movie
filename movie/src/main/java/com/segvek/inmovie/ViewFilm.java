@@ -8,11 +8,13 @@ package com.segvek.inmovie;
 import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.db.HibernateUtil;
+import com.segvek.inmovie.entity.Comment;
 import com.segvek.inmovie.entity.Film;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -48,6 +50,8 @@ public class ViewFilm extends HttpServlet {
             dispatcher = request.getRequestDispatcher("errorpage//ErrorNotFoundPage.jsp");
         }
         
+        Set<Comment> coments = film.getComents();
+        request.setAttribute("coment", coments);
         request.setAttribute("film", film);
         dispatcher.forward(request, response);
     }

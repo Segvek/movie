@@ -87,6 +87,10 @@ public class EntryPointServlet extends HttpServlet {
                 address="AddToWatchList";
                 break;
             }
+            case "comment":{
+                address="Comment";
+                break;
+            }
             default:
                 address = "LoadIndex";
         }
