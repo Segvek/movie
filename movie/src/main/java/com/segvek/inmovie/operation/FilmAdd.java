@@ -1,11 +1,9 @@
 package com.segvek.inmovie.operation;
 
-import com.segvek.inmovie.dao.Dao;
 import com.segvek.inmovie.dao.DaoFactory;
 import com.segvek.inmovie.dao.DaoImpl;
 import com.segvek.inmovie.entity.Film;
 import com.segvek.inmovie.entity.Janr;
-import com.segvek.inmovie.entity.User;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
@@ -42,7 +40,7 @@ public class FilmAdd {
         String patchImage = request.getParameter("patchImage");
         String budget = request.getParameter("budget");
         String time = request.getParameter("time");
-
+        Long idKinipoisk = Long.parseLong(request.getParameter("kinopoisk"));
         
         String janrsString[] = request.getParameterValues("janr");
         
@@ -80,6 +78,7 @@ public class FilmAdd {
         film.setSbory(sbory);
         film.setSchenarist(schenarist);
         film.setTime(time);
+        film.setIdKinipoisk(idKinipoisk);
         
         try {
             dao.addEntity(film);

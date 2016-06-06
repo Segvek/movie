@@ -89,7 +89,7 @@
             <p><input type="text" name="patchImage" class="input" value="<%=film.getPatchImage()%>" size="40" required></p>
             
             <p><label for="kinopoisk">Введите id кинопоиска:</label></p>
-            <p><input type="text" name="kinopoisk" class="input" size="10" maxlength="10" required></p>
+            <p><input type="text" name="kinopoisk" class="input" size="10" maxlength="10" required value="<%=film.getIdKinipoisk()%>"></p>
 
             <p><button name="add_film" type="submit">Сохранить</button></p>
 

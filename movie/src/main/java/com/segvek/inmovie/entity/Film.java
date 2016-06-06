@@ -61,6 +61,8 @@ public class Film extends Model {
     @Column(name = "linkVideo")
     private String linkVideo;
 
+    @Column(name = "idKiniPoisk")
+    private Long idKinipoisk;
     
     @ManyToMany(fetch = FetchType.LAZY, 
         cascade = {CascadeType.PERSIST, CascadeType.MERGE}) 
@@ -243,5 +245,11 @@ public class Film extends Model {
         this.coments = coments;
     }
 
-    
+    public void setIdKinipoisk(Long idKinipoisk) {
+        this.idKinipoisk = idKinipoisk;
+    }
+
+    public Long getIdKinipoisk() {
+        return idKinipoisk;
+    }    
 }

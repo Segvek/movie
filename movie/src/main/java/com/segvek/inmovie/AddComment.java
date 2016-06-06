@@ -64,7 +64,7 @@ public class AddComment extends HttpServlet {
         
         try {
             DaoFactory.getFactory().getDaoFilm().updateEntity(film);
-            DaoFactory.getFactory().getDaoUser().updateEntity(user);
+//            DaoFactory.getFactory().getDaoUser().updateEntity(user);
         } catch (SQLException ex) {
             Logger.getLogger(AddComment.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -45,7 +45,9 @@ public class EditFilms {
         String patchImage = request.getParameter("patchImage");
         String budget = request.getParameter("budget");
         String time = request.getParameter("time");
-
+        Long idKinipoisk = Long.parseLong(request.getParameter("kinopoisk"));
+        
+        
         String janrsString[] = request.getParameterValues("janr");
 
         //загрузка фильма
@@ -94,7 +96,8 @@ public class EditFilms {
         film.setSbory(sbory);
         film.setSchenarist(schenarist);
         film.setTime(time);
-
+        film.setIdKinipoisk(idKinipoisk);
+        
         try {
             daoFilm.updateEntity(film);
         } catch (SQLException ex) {
